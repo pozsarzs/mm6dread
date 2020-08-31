@@ -1,0 +1,54 @@
+MM6DRead - Status reader program for MM6D device
+------------------------------------------------
+
+1. About software
+~~~~~~~~~~~~~~~~~
+  You can check status of MM6D growing house controllers with this
+software via network.
+
+2. How to get installer package for my OS?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+a. Visit homepage (see later) to download installer packages:
+
+  architecture  operation system        filename
+  --------------------------------------------------------------------
+  (all)         (source code)           mm6dread-0.1.tar.gz
+  ix86          Debian GNU/Linux        mm6dread_0.1-1_i386.deb
+  ix86          Linux                   mm6dread-0.1-i586.bin
+  ix86          Linux                   mm6dread-0.1-i586.tar.gz
+  ix86          Windows 32 bit          mm6dread-0.1-win32.exe
+  ix86          Windows 32 bit          mm6dread-0.1-win32.msi
+  ix86          Windows 32 bit          mm6dread-0.1-win32.zip
+
+b. Download from Github
+
+  $ git clone https://github.com/pozsarzs/mm6dread.git
+
+c. Download from Debian repository
+
+  set reporitory:
+  # echo "deb http://www.szerafingomba.hu/deb/ ./" >> /etc/apt/sources.list
+  # wget -q -O - http://www.szerafingomba.hu/deb/KEY.gpg | apt-key add -
+  # apt-get update
+
+  install
+  # apt-get install mm6dread
+
+3. Contact
+~~~~~~~~~~
+
+   Homepage:             <http://www.szerafingomba.hu/softwares/>
+   Author:               Pozsar Zsolt
+   Tax ID:               60407850-1-36
+   Registration num.:    20703695
+
+   E-mail:               <pozsar.zsolt@szerafingomba.hu>
+   Phone:                +36 56/470-272
+   Mobile:               +36 30/249-5030
+   Postal address:       Pozsar Zsolt
+                         Kurazsi Fo ut 1.
+                         HU-5430 Tiszafoldvar
+                         Hungary
+
+---------------------------------------------------------------------------------
+ MM6DRead * Copyright (C) 2020 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>

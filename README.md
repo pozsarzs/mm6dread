@@ -7,8 +7,8 @@ GitHub: <https://github.com/pozsarzs/mm6dread>
 
 **Software**
 
- - architecture:       armeabi, armhf, i386
- - operation system:   Android, FreeBSD, Linux, Windows
+ - architecture:       i386
+ - operation system:   Linux, Windows
  - version:            v0.1
  - language:           en
  - licence:            EUPL v1.1
