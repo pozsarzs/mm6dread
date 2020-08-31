@@ -1,0 +1,54 @@
+#!/bin/bash
+# +----------------------------------------------------------------------------+
+# | MM6DRead v0.1 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>            |
+# | create_links                                                               |
+# | Symbolic link creator script                                               |
+# +----------------------------------------------------------------------------+
+
+# constans
+SWN="MM6DRead"
+SWV=`cat documents/VERSION`
+LINKDIR=/usr/local
+SYSDIRS="$LINKDIR/bin \
+         $LINKDIR/share/applications \
+         $LINKDIR/share/man/man1 \
+         $LINKDIR/share/pixmaps"
+BINFILE=mm6dread
+README=./README
+
+# installer
+clear
+echo "--------------------------------------------------------------------------------"
+echo "$SWN $SWV symbolic link creator script"
+echo "Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>"
+echo "--------------------------------------------------------------------------------"
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+echo "  This program is free software: you can redistribute it and/or modify it
+under the terms of the European Union Public License 1.1 version.
+
+  This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE."
+echo "--------------------------------------------------------------------------------"
+sleep 3
+echo "Creating symbolic links..."
+mkdir --parents $INSTDIR 2> /dev/null
+for D in $SYSDIRS
+do
+  mkdir --parents $D 2> /dev/null
+done
+ln -s `pwd`/$BINFILE $LINKDIR/bin/$BINFILE 2> /dev/null
+echo "  "`pwd`/$BINFILE' --> '$LINKDIR/bin/$BINFILE
+ln -s `pwd`/$BINFILE.desktop $LINKDIR/share/applications/$BINFILE.desktop 2> /dev/null
+echo "  "`pwd`/$BINFILE.desktop' --> '$LINKDIR/share/applications/$BINFILE.desktop
+ln -s `pwd`/$BINFILE.xpm $LINKDIR/share/pixmaps/$BINFILE.xpm 2> /dev/null
+echo "  "`pwd`/$BINFILE.xpm' --> '$LINKDIR/share/pixmaps/$BINFILE.xpm
+ln -s `pwd`/manuals/"$BINFILE"_en.1 $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
+echo "  "`pwd`/manuals/"$BINFILE"_en.1' --> '$LINKDIR/share/man/man1/$BINFILE.1
+echo "Done."
+echo ""
+echo "Thank you for installing $SWN,"
+echo "see $README for more information."

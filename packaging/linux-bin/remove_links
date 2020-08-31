@@ -1,0 +1,35 @@
+#!/bin/bash
+# +----------------------------------------------------------------------------+
+# | MM6DRead v0.1 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>            |
+# | remove_links                                                               |
+# | Symbolic link remover script                                               |
+# +----------------------------------------------------------------------------+
+
+# constans
+SWN="MM6DRead"
+SWV=`cat documents/VERSION`
+INSTDIR=/opt/mm6dread
+LINKDIR=/usr/local
+BINFILE=mm6dread
+
+# link remover
+clear
+echo "--------------------------------------------------------------------------------"
+echo "$SWN $SWV symbolic link remover script"
+echo "Copyright (C) 2019-2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>"
+echo "--------------------------------------------------------------------------------"
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+sleep 1
+echo "Removing sysbolic links..."
+rm --force $LINKDIR/bin/$BINFILE 2> /dev/null
+echo "  $LINKDIR/bin/$BINFILE"
+rm --force $LINKDIR/share/applications/$BINFILE.desktop 2> /dev/null
+echo "  $LINKDIR/share/applications/$BINFILE.desktop"
+rm --force $LINKDIR/share/pixmaps/$BINFILE.xpm 2> /dev/null
+echo "  $LINKDIR/share/pixmaps/$BINFILE.xpm"
+rm --force $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
+echo "  $LINKDIR/share/man/man1/$BINFILE.1"
+echo "Done."
