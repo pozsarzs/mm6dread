@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 397
-  Height = 310
-  Top = 131
-  Width = 380
+  Left = 319
+  Height = 320
+  Top = 161
+  Width = 498
   Caption = 'Form1'
-  ClientHeight = 310
-  ClientWidth = 380
+  ClientHeight = 320
+  ClientWidth = 498
   Constraints.MinHeight = 310
   Constraints.MinWidth = 380
   Icon.Data = {
@@ -85,36 +85,6 @@ object Form1: TForm1
   OnCreate = FormCreate
   Position = poDefaultPosOnly
   LCLVersion = '1.6.2.0'
-  object Shape2: TShape
-    AnchorSideLeft.Control = Bevel3
-    AnchorSideTop.Control = Bevel3
-    AnchorSideRight.Control = Bevel3
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Bevel3
-    AnchorSideBottom.Side = asrBottom
-    Left = 6
-    Height = 57
-    Top = 135
-    Width = 169
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 2
-    Brush.Color = 5046272
-  end
-  object Shape1: TShape
-    AnchorSideLeft.Control = Bevel2
-    AnchorSideTop.Control = Bevel2
-    AnchorSideRight.Control = Bevel2
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Bevel2
-    AnchorSideBottom.Side = asrBottom
-    Left = 6
-    Height = 57
-    Top = 70
-    Width = 169
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 2
-    Brush.Color = 5046272
-  end
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -124,7 +94,7 @@ object Form1: TForm1
     Height = 27
     Hint = 'URL'
     Top = 4
-    Width = 372
+    Width = 490
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -146,97 +116,16 @@ object Form1: TForm1
     Left = 4
     Height = 13
     Top = 62
-    Width = 372
+    Width = 490
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Shape = bsTopLine
   end
-  object Bevel2: TBevel
-    AnchorSideLeft.Control = ComboBox1
-    AnchorSideTop.Control = Edit1
-    AnchorSideTop.Side = asrBottom
-    Left = 4
-    Height = 61
-    Top = 68
-    Width = 173
-    BorderSpacing.Top = 10
-  end
-  object Bevel3: TBevel
-    AnchorSideLeft.Control = ComboBox1
-    AnchorSideTop.Control = Bevel2
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Side = asrBottom
-    Left = 4
-    Height = 61
-    Top = 133
-    Width = 173
-    BorderSpacing.Top = 4
-  end
-  object Label1: TLabel
-    AnchorSideLeft.Control = Bevel2
-    AnchorSideTop.Control = Bevel2
-    AnchorSideBottom.Control = Bevel1
-    AnchorSideBottom.Side = asrBottom
-    Left = 8
-    Height = 13
-    Top = 72
-    Width = 72
-    BorderSpacing.Around = 4
-    Caption = 'Temperature'
-    Font.Color = clAqua
-    ParentColor = False
-    ParentFont = False
-  end
-  object Label2: TLabel
-    AnchorSideLeft.Control = Bevel3
-    AnchorSideTop.Control = Bevel3
-    Left = 8
-    Height = 13
-    Top = 137
-    Width = 96
-    BorderSpacing.Around = 4
-    Caption = 'Relative humidity'
-    Font.Color = clAqua
-    ParentColor = False
-    ParentFont = False
-  end
-  object Label3: TLabel
-    AnchorSideLeft.Control = Bevel2
-    AnchorSideLeft.Side = asrCenter
-    AnchorSideTop.Control = Bevel2
-    Left = 67
-    Height = 24
-    Top = 91
-    Width = 46
-    BorderSpacing.Top = 23
-    Caption = '0 °C'
-    Font.Color = clAqua
-    Font.Height = 20
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-  end
-  object Label4: TLabel
-    AnchorSideLeft.Control = Bevel3
-    AnchorSideLeft.Side = asrCenter
-    AnchorSideTop.Control = Bevel3
-    Left = 70
-    Height = 24
-    Top = 156
-    Width = 41
-    BorderSpacing.Top = 23
-    Caption = '0 %'
-    Font.Color = clAqua
-    Font.Height = 20
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-  end
   object StatusBar1: TStatusBar
     Left = 0
     Height = 17
-    Top = 293
-    Width = 380
+    Top = 303
+    Width = 498
     Panels = <    
       item
         Alignment = taCenter
@@ -255,7 +144,7 @@ object Form1: TForm1
     AnchorSideTop.Control = ComboBox1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = SpeedButton3
-    Left = 326
+    Left = 444
     Height = 22
     Hint = 'Add URL to list'
     Top = 35
@@ -310,7 +199,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 353
+    Left = 471
     Height = 22
     Hint = 'Remove URL from list'
     Top = 35
@@ -369,7 +258,7 @@ object Form1: TForm1
     Height = 23
     Hint = 'UID'
     Top = 35
-    Width = 318
+    Width = 436
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 4
     BorderSpacing.Top = 4
@@ -379,103 +268,31 @@ object Form1: TForm1
     TabOrder = 1
     Text = '00000000'
   end
-  object Shape15: TShape
-    AnchorSideLeft.Control = Bevel16
-    AnchorSideTop.Control = Bevel16
-    AnchorSideRight.Control = Bevel16
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Bevel16
-    AnchorSideBottom.Side = asrBottom
-    Left = 6
-    Height = 57
-    Top = 200
-    Width = 169
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 2
-    Brush.Color = 5046272
-  end
-  object Bevel16: TBevel
-    AnchorSideLeft.Control = ComboBox1
-    AnchorSideTop.Control = Bevel3
-    AnchorSideTop.Side = asrBottom
-    Left = 4
-    Height = 61
-    Top = 198
-    Width = 173
-    BorderSpacing.Top = 4
-  end
-  object Label17: TLabel
-    AnchorSideLeft.Control = Bevel16
-    AnchorSideTop.Control = Bevel16
-    AnchorSideBottom.Control = Bevel1
-    AnchorSideBottom.Side = asrBottom
-    Left = 8
-    Height = 13
-    Top = 202
-    Width = 140
-    BorderSpacing.Around = 4
-    Caption = 'Relative gas concentrate'
-    Font.Color = clAqua
-    ParentColor = False
-    ParentFont = False
-  end
-  object Label18: TLabel
-    AnchorSideLeft.Control = Bevel16
-    AnchorSideLeft.Side = asrCenter
-    AnchorSideTop.Control = Bevel16
-    Left = 70
-    Height = 24
-    Top = 221
-    Width = 41
-    BorderSpacing.Top = 23
-    Caption = '0 %'
-    Font.Color = clAqua
-    Font.Height = 20
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-  end
-  object Button7: TButton
-    AnchorSideLeft.Control = Bevel16
-    AnchorSideTop.Control = Bevel16
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = Bevel16
-    AnchorSideRight.Side = asrBottom
-    Left = 4
-    Height = 25
-    Top = 263
-    Width = 173
-    Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Top = 4
-    Caption = 'Refresh displays'
-    Enabled = False
-    OnClick = Button7Click
-    TabOrder = 3
-  end
   object GroupBox1: TGroupBox
-    AnchorSideLeft.Control = Bevel2
+    AnchorSideLeft.Control = GroupBox3
     AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = Bevel2
+    AnchorSideTop.Control = Bevel1
     AnchorSideRight.Control = Bevel1
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Button7
+    AnchorSideBottom.Control = GroupBox3
     AnchorSideBottom.Side = asrBottom
-    Left = 181
-    Height = 220
+    Left = 252
+    Height = 164
     Top = 68
-    Width = 195
+    Width = 242
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 4
-    Caption = 'Status LEDs'
-    ClientHeight = 205
-    ClientWidth = 191
-    TabOrder = 4
+    BorderSpacing.Top = 6
+    Caption = 'Outputs'
+    ClientHeight = 149
+    ClientWidth = 238
+    TabOrder = 3
     object Button1: TButton
       Left = 16
       Height = 25
-      Top = 32
-      Width = 75
-      Caption = 'Green off'
+      Top = 10
+      Width = 100
+      Caption = 'Lamp off'
       Enabled = False
       OnClick = Button1Click
       TabOrder = 0
@@ -486,10 +303,10 @@ object Form1: TForm1
       AnchorSideTop.Side = asrBottom
       Left = 16
       Height = 25
-      Top = 65
-      Width = 75
+      Top = 43
+      Width = 100
       BorderSpacing.Top = 8
-      Caption = 'Yellow off'
+      Caption = 'Ventilator off'
       Enabled = False
       OnClick = Button4Click
       TabOrder = 1
@@ -500,10 +317,10 @@ object Form1: TForm1
       AnchorSideTop.Side = asrBottom
       Left = 16
       Height = 25
-      Top = 98
-      Width = 75
+      Top = 76
+      Width = 100
       BorderSpacing.Top = 8
-      Caption = 'Red off'
+      Caption = 'Heater off'
       Enabled = False
       OnClick = Button5Click
       TabOrder = 2
@@ -512,12 +329,12 @@ object Form1: TForm1
       AnchorSideLeft.Control = Button4
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Button4
-      Left = 95
+      Left = 120
       Height = 25
-      Top = 65
-      Width = 75
+      Top = 43
+      Width = 100
       BorderSpacing.Left = 4
-      Caption = 'Yellow on'
+      Caption = 'Ventilator on'
       Enabled = False
       OnClick = Button3Click
       TabOrder = 3
@@ -526,12 +343,12 @@ object Form1: TForm1
       AnchorSideLeft.Control = Button1
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Button1
-      Left = 95
+      Left = 120
       Height = 25
-      Top = 32
-      Width = 75
+      Top = 10
+      Width = 100
       BorderSpacing.Left = 4
-      Caption = 'Green on'
+      Caption = 'Lamp on'
       Enabled = False
       OnClick = Button2Click
       TabOrder = 4
@@ -540,12 +357,12 @@ object Form1: TForm1
       AnchorSideLeft.Control = Button5
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Button5
-      Left = 95
+      Left = 120
       Height = 25
-      Top = 98
-      Width = 75
+      Top = 76
+      Width = 100
       BorderSpacing.Left = 4
-      Caption = 'Red on'
+      Caption = 'Heater on'
       Enabled = False
       OnClick = Button6Click
       TabOrder = 5
@@ -558,14 +375,249 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       Left = 16
       Height = 25
-      Top = 131
-      Width = 154
+      Top = 109
+      Width = 204
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 8
       Caption = 'All off'
       Enabled = False
       OnClick = Button8Click
       TabOrder = 6
+    end
+  end
+  object GroupBox2: TGroupBox
+    AnchorSideLeft.Control = ComboBox1
+    AnchorSideTop.Control = GroupBox3
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = GroupBox1
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = StatusBar1
+    Left = 4
+    Height = 63
+    Top = 238
+    Width = 490
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Top = 6
+    BorderSpacing.Bottom = 2
+    Caption = 'Alarm'
+    ClientHeight = 48
+    ClientWidth = 486
+    TabOrder = 4
+    object Bevel8: TBevel
+      AnchorSideLeft.Control = GroupBox2
+      AnchorSideTop.Control = GroupBox2
+      Left = 16
+      Height = 18
+      Top = 12
+      Width = 30
+      BorderSpacing.Left = 16
+      BorderSpacing.Top = 12
+    end
+    object Shape7: TShape
+      AnchorSideLeft.Control = Bevel8
+      AnchorSideTop.Control = Bevel8
+      AnchorSideRight.Control = Bevel8
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Bevel8
+      AnchorSideBottom.Side = asrBottom
+      Left = 18
+      Height = 14
+      Top = 14
+      Width = 26
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Around = 2
+      Brush.Color = 76
+      ParentShowHint = False
+    end
+    object Label9: TLabel
+      AnchorSideLeft.Control = Bevel8
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideBottom.Control = Bevel8
+      AnchorSideBottom.Side = asrCenter
+      Left = 54
+      Height = 13
+      Top = 14
+      Width = 73
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Left = 8
+      Caption = 'Alarm status'
+      ParentColor = False
+      ParentShowHint = False
+    end
+    object Button7: TButton
+      Left = 264
+      Height = 25
+      Top = 8
+      Width = 100
+      Caption = 'Get status'
+      Enabled = False
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object Button9: TButton
+      AnchorSideLeft.Control = Button7
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Button7
+      Left = 368
+      Height = 25
+      Top = 8
+      Width = 100
+      BorderSpacing.Left = 4
+      Caption = 'Restore status'
+      Enabled = False
+      OnClick = Button2Click
+      TabOrder = 1
+    end
+  end
+  object GroupBox3: TGroupBox
+    AnchorSideLeft.Control = ComboBox1
+    AnchorSideTop.Control = Bevel1
+    Left = 4
+    Height = 164
+    Top = 68
+    Width = 244
+    BorderSpacing.Top = 6
+    BorderSpacing.Bottom = 2
+    Caption = 'Inputs'
+    ClientHeight = 149
+    ClientWidth = 240
+    TabOrder = 5
+    object Bevel4: TBevel
+      AnchorSideLeft.Control = GroupBox3
+      AnchorSideTop.Control = GroupBox3
+      Left = 16
+      Height = 18
+      Top = 8
+      Width = 30
+      BorderSpacing.Left = 16
+      BorderSpacing.Top = 8
+    end
+    object Shape3: TShape
+      AnchorSideLeft.Control = Bevel4
+      AnchorSideTop.Control = Bevel4
+      AnchorSideRight.Control = Bevel4
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Bevel4
+      AnchorSideBottom.Side = asrBottom
+      Left = 18
+      Height = 14
+      Top = 10
+      Width = 26
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Around = 2
+      Brush.Color = 19456
+      ParentShowHint = False
+    end
+    object Label5: TLabel
+      AnchorSideLeft.Control = Bevel4
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Bevel4
+      AnchorSideBottom.Control = Bevel4
+      AnchorSideBottom.Side = asrCenter
+      Left = 54
+      Height = 13
+      Top = 10
+      Width = 92
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Left = 8
+      Caption = 'Operation mode'
+      ParentColor = False
+      ParentShowHint = False
+    end
+    object Bevel5: TBevel
+      AnchorSideLeft.Control = Bevel4
+      AnchorSideTop.Control = Bevel4
+      AnchorSideTop.Side = asrBottom
+      Left = 16
+      Height = 18
+      Top = 34
+      Width = 30
+      BorderSpacing.Top = 8
+    end
+    object Shape4: TShape
+      AnchorSideLeft.Control = Bevel5
+      AnchorSideTop.Control = Bevel5
+      AnchorSideRight.Control = Bevel5
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Bevel5
+      AnchorSideBottom.Side = asrBottom
+      Left = 18
+      Height = 14
+      Top = 36
+      Width = 26
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Around = 2
+      Brush.Color = 19456
+      ParentShowHint = False
+    end
+    object Label6: TLabel
+      AnchorSideLeft.Control = Bevel5
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideBottom.Control = Bevel5
+      AnchorSideBottom.Side = asrCenter
+      Left = 54
+      Height = 13
+      Top = 36
+      Width = 76
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Left = 8
+      Caption = 'Manual mode'
+      ParentColor = False
+      ParentShowHint = False
+    end
+    object Bevel6: TBevel
+      AnchorSideLeft.Control = Bevel5
+      AnchorSideTop.Control = Bevel5
+      AnchorSideTop.Side = asrBottom
+      Left = 16
+      Height = 18
+      Top = 60
+      Width = 30
+      BorderSpacing.Top = 8
+    end
+    object Shape5: TShape
+      AnchorSideLeft.Control = Bevel6
+      AnchorSideTop.Control = Bevel6
+      AnchorSideRight.Control = Bevel6
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Bevel6
+      AnchorSideBottom.Side = asrBottom
+      Left = 18
+      Height = 14
+      Top = 62
+      Width = 26
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Around = 2
+      Brush.Color = 19456
+      ParentShowHint = False
+    end
+    object Label7: TLabel
+      AnchorSideLeft.Control = Bevel6
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideBottom.Control = Bevel6
+      AnchorSideBottom.Side = asrCenter
+      Left = 54
+      Height = 13
+      Top = 62
+      Width = 129
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Left = 8
+      Caption = 'Overcurrent protection'
+      ParentColor = False
+      ParentShowHint = False
+    end
+    object Button10: TButton
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      Left = 16
+      Height = 25
+      Top = 109
+      Width = 204
+      BorderSpacing.Top = 8
+      Caption = 'Get status'
+      Enabled = False
+      OnClick = Button8Click
+      TabOrder = 0
     end
   end
 end

@@ -25,10 +25,12 @@ type
   { TForm1 }
   TForm1 = class(TForm)
     Bevel1: TBevel;
-    Bevel16: TBevel;
-    Bevel2: TBevel;
-    Bevel3: TBevel;
+    Bevel4: TBevel;
+    Bevel5: TBevel;
+    Bevel6: TBevel;
+    Bevel8: TBevel;
     Button1: TButton;
+    Button10: TButton;
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
@@ -36,18 +38,20 @@ type
     Button6: TButton;
     Button7: TButton;
     Button8: TButton;
+    Button9: TButton;
     ComboBox1: TComboBox;
     Edit1: TEdit;
     GroupBox1: TGroupBox;
-    Label1: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Shape1: TShape;
-    Shape15: TShape;
-    Shape2: TShape;
+    GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label9: TLabel;
+    Shape3: TShape;
+    Shape4: TShape;
+    Shape5: TShape;
+    Shape7: TShape;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     StatusBar1: TStatusBar;
