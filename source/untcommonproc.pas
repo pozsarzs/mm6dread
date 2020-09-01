@@ -59,15 +59,21 @@ implementation
 // get data from controller device via http
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 const
-  cmdstr: array[0..8] of string = ('version',
+  cmdstr: array[0..13] of string = ('version',
     'get/all',
     'set/all/off',
-    'set/greenled/off',
-    'set/greenled/on',
-    'set/yellowled/off',
-    'set/yellowled/on',
-    'set/redled/off',
-    'set/redled/on');
+    'set/lamp/off',
+    'set/lamp/on',
+    'set/ventilator/off',
+    'set/ventilator/on',
+    'set/heater/off',
+    'set/heater/on',
+    'get/alarm',
+    'get/manualswitch',
+    'get/operationmode',
+    'get/protection',
+    'set/alarm/off');
+
 begin
   getdatafromdevice := True;
   Value.Clear;

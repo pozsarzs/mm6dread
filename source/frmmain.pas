@@ -55,6 +55,7 @@ type
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     StatusBar1: TStatusBar;
+    procedure Button10Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -63,6 +64,7 @@ type
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -138,6 +140,8 @@ begin
     Button6.Enabled := False;
     Button7.Enabled := False;
     Button8.Enabled := False;
+    Button9.Enabled := False;
+    Button10.Enabled := False;
   end
   else
   begin
@@ -151,6 +155,8 @@ begin
     Button6.Enabled := True;
     Button7.Enabled := True;
     Button8.Enabled := True;
+    Button9.Enabled := True;
+    Button10.Enabled := True;
   end;
 end;
 
@@ -168,7 +174,7 @@ begin
     Result := 2;
 end;
 
-procedure turnonoffleds(cmd: byte);
+procedure turnonoff(cmd: byte);
 var
   good: boolean;
 begin
@@ -193,105 +199,64 @@ begin
     ShowMessage(MESSAGE03);
 end;
 
-// refresh displays
-procedure TForm1.Button7Click(Sender: TObject);
-var
-  format: TFormatSettings;
-  good: boolean;
-  gc, t, rh: single;
+// get input status
+procedure TForm1.Button10Click(Sender: TObject);
 begin
-  case checkcompatibility(CNTNAME, CNTVER) of
-    0: StatusBar1.Panels.Items[0].Text := Value.Strings[0] + ' ' + Value.Strings[1];
-    1:
-    begin
-      ShowMessage(MESSAGE04);
-      StatusBar1.Panels.Items[0].Text := '';
-      exit;
-    end;
-    2: StatusBar1.Panels.Items[0].Text := '';
-  end;
-  good := getdatafromdevice(ComboBox1.Text, 1, Edit1.Text);
-  if good then
-    if Value.Count <> 3 then
-      good := False
-    else
-      good := True;
-  if good then
-  begin
-    format.DecimalSeparator := '.';
-    trystrtofloat(Value.Strings[0], gc, format);
-    trystrtofloat(Value.Strings[1], rh, format);
-    trystrtofloat(Value.Strings[2], t, format);
-  end;
-  if not good then
-  begin
-    // displays
-    Label3.Caption := '0 °C';
-    Label4.Caption := '0 %';
-    Label18.Caption := '0 %';
-    ShowMessage(MESSAGE03);
-  end
-  else
-  begin
-    // displays
-    t := round(t);
-    if (t >= 0) and (t < 100) then
-      Label3.Caption := floattostr(t) + ' °C'
-    else
-      Label3.Caption := '0 °C';
-    rh := round(rh);
-    if (rh >= 0) and (rh < 101) then
-      Label4.Caption := floattostr(rh) + ' %'
-    else
-      Label4.Caption := '0 %';
-    gc := round(gc);
-    if (gc >= 0) and (gc < 101) then
-      Label18.Caption := floattostr(gc) + ' %'
-    else
-      Label18.Caption := '0 %';
-  end;
+
 end;
 
-// turn off green LED
+// get alarm status
+procedure TForm1.Button7Click(Sender: TObject);
+begin
+
+end;
+
+// turn off lamps
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  turnonoffleds(3);
+  turnonoff(3);
 end;
 
-// turn on green LED
+// turn on lamps
 procedure TForm1.Button2Click(Sender: TObject);
 begin
-  turnonoffleds(4);
+  turnonoff(4);
 end;
 
-// turn off yellow LED
+// turn off ventilators
 procedure TForm1.Button4Click(Sender: TObject);
 begin
-  turnonoffleds(5);
+  turnonoff(5);
 end;
 
-// turn on yellow LED
+// turn on ventilators
 procedure TForm1.Button3Click(Sender: TObject);
 begin
-  turnonoffleds(6);
+  turnonoff(6);
 end;
 
-// turn off red LED
+// turn off heaters
 procedure TForm1.Button5Click(Sender: TObject);
 begin
-  turnonoffleds(7);
+  turnonoff(7);
 end;
 
-// turn on red LED
+// turn on heaters
 procedure TForm1.Button6Click(Sender: TObject);
 begin
-  turnonoffleds(8);
+  turnonoff(8);
 end;
 
-// turn off all LEDs
+// turn off all outputs
 procedure TForm1.Button8Click(Sender: TObject);
 begin
-  turnonoffleds(2);
+  turnonoff(2);
+end;
+
+// restore alarm status
+procedure TForm1.Button9Click(Sender: TObject);
+begin
+  turnonoff(13);
 end;
 
 // events of Form1

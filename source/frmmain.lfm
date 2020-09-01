@@ -451,7 +451,7 @@ object Form1: TForm1
       Width = 100
       Caption = 'Get status'
       Enabled = False
-      OnClick = Button1Click
+      OnClick = Button7Click
       TabOrder = 0
     end
     object Button9: TButton
@@ -465,7 +465,7 @@ object Form1: TForm1
       BorderSpacing.Left = 4
       Caption = 'Restore status'
       Enabled = False
-      OnClick = Button2Click
+      OnClick = Button9Click
       TabOrder = 1
     end
   end
@@ -616,7 +616,7 @@ object Form1: TForm1
       BorderSpacing.Top = 8
       Caption = 'Get status'
       Enabled = False
-      OnClick = Button8Click
+      OnClick = Button10Click
       TabOrder = 0
     end
   end
