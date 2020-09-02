@@ -201,14 +201,59 @@ end;
 
 // get input status
 procedure TForm1.Button10Click(Sender: TObject);
-begin
+var
+  ledoff, ledon: TColor;
+  good: boolean;
 
+begin
+  ledoff := clGreen;
+  ledon := clLime;
+  Shape3.Brush.Color := ledoff;
+  Shape4.Brush.Color := ledoff;
+  Shape5.Brush.Color := ledoff;
+  good := getdatafromdevice(ComboBox1.Text, 1, Edit1.Text);
+  if good then
+  begin
+    if Value.Strings[1] = '1' then
+      Shape3.Brush.Color := ledon
+    else
+      Shape3.Brush.Color := ledoff;
+    if Value.Strings[2] = '1' then
+      Shape4.Brush.Color := ledon
+    else
+      Shape4.Brush.Color := ledoff;
+    if Value.Strings[3] = '1' then
+      Shape5.Brush.Color := ledon
+    else
+      Shape5.Brush.Color := ledoff;
+  end
+  else
+  begin
+    Shape3.Brush.Color := ledoff;
+    Shape4.Brush.Color := ledoff;
+    Shape5.Brush.Color := ledoff;
+  end;
 end;
 
 // get alarm status
 procedure TForm1.Button7Click(Sender: TObject);
+var
+  ledoff, ledon: TColor;
+  good: boolean;
 begin
-
+  ledoff := clMaroon;
+  ledon := clred;
+  Shape7.Brush.Color := ledoff;
+  good := getdatafromdevice(ComboBox1.Text, 9, Edit1.Text);
+  if good then
+  begin
+    if Value.Strings[0] = '1' then
+      Shape7.Brush.Color := ledon
+    else
+      Shape7.Brush.Color := ledoff;
+  end
+  else
+    Shape7.Brush.Color := ledoff;
 end;
 
 // turn off lamps
@@ -257,6 +302,7 @@ end;
 procedure TForm1.Button9Click(Sender: TObject);
 begin
   turnonoff(13);
+  Button7Click(Sender);
 end;
 
 // events of Form1

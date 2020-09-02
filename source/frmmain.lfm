@@ -6,8 +6,8 @@ object Form1: TForm1
   Caption = 'Form1'
   ClientHeight = 320
   ClientWidth = 498
-  Constraints.MinHeight = 310
-  Constraints.MinWidth = 380
+  Constraints.MinHeight = 320
+  Constraints.MinWidth = 498
   Icon.Data = {
     BE0800000000010001002020000001000800A808000016000000280000002000
     0000400000000100080000000000000000000000000000000000000000000000
@@ -426,7 +426,7 @@ object Form1: TForm1
       Width = 26
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Around = 2
-      Brush.Color = 76
+      Brush.Color = clMaroon
       ParentShowHint = False
     end
     object Label9: TLabel
@@ -505,7 +505,7 @@ object Form1: TForm1
       Width = 26
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Around = 2
-      Brush.Color = 19456
+      Brush.Color = clGreen
       ParentShowHint = False
     end
     object Label5: TLabel
@@ -547,7 +547,7 @@ object Form1: TForm1
       Width = 26
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Around = 2
-      Brush.Color = 19456
+      Brush.Color = clGreen
       ParentShowHint = False
     end
     object Label6: TLabel
@@ -588,7 +588,7 @@ object Form1: TForm1
       Width = 26
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Around = 2
-      Brush.Color = 19456
+      Brush.Color = clGreen
       ParentShowHint = False
     end
     object Label7: TLabel
