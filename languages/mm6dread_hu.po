@@ -1,0 +1,96 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: frmmain.message01
+msgid "Cannot read configuration file!"
+msgstr "A beállításfájl nem olvasható!"
+
+#: frmmain.message02
+msgid "Cannot write configuration file!"
+msgstr "A beállításfájl nem írható!"
+
+#: frmmain.message03
+msgid "Cannot read data from this URL!"
+msgstr "Nem tudok adatokat beolvasni erről az URL-ről!"
+
+#: frmmain.message04
+msgid "Not compatible controller!"
+msgstr "Nem kompatibilis vezérlő!"
+
+#: tform1.button1.caption
+msgid "Lamp off"
+msgstr "Világítás ki"
+
+#: tform1.button10.caption
+msgctxt "TFORM1.BUTTON10.CAPTION"
+msgid "Get status"
+msgstr "Állapotlekérés"
+
+#: tform1.button2.caption
+msgid "Lamp on"
+msgstr "Világítás be"
+
+#: tform1.button3.caption
+msgid "Ventilator on"
+msgstr "Ventilátor be"
+
+#: tform1.button4.caption
+msgid "Ventilator off"
+msgstr "Ventilátor ki"
+
+#: tform1.button5.caption
+msgid "Heater off"
+msgstr "Fűtés ki"
+
+#: tform1.button6.caption
+msgid "Heater on"
+msgstr "Fűtés be"
+
+#: tform1.button7.caption
+msgctxt "tform1.button7.caption"
+msgid "Get status"
+msgstr "Állapotlekérés"
+
+#: tform1.button8.caption
+msgid "All off"
+msgstr "Minden ki"
+
+#: tform1.button9.caption
+msgid "Restore status"
+msgstr "Visszaállítás"
+
+#: tform1.groupbox1.caption
+msgid "Outputs"
+msgstr "Kimenetek"
+
+#: tform1.groupbox2.caption
+msgid "Alarm"
+msgstr "Riasztó"
+
+#: tform1.groupbox3.caption
+msgid "Inputs"
+msgstr "Bemenetek"
+
+#: tform1.label5.caption
+msgid "Operation mode"
+msgstr "Működési mód"
+
+#: tform1.label6.caption
+msgid "Manual mode"
+msgstr "Kézi üzemmód"
+
+#: tform1.label7.caption
+msgid "Overcurrent protection"
+msgstr "Túláramvédelem"
+
+#: tform1.label9.caption
+msgid "Alarm status"
+msgstr "Riasztó állapot"
+
+#: tform1.speedbutton2.hint
+msgid "Add URL to list"
+msgstr "URL hozzáadása a listához"
+
+#: tform1.speedbutton3.hint
+msgid "Remove URL from list"
+msgstr "URL eltávolítása a listából"
