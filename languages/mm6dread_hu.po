@@ -47,7 +47,7 @@ msgid "Heater on"
 msgstr "Fűtés be"
 
 #: tform1.button7.caption
-msgctxt "tform1.button7.caption"
+msgctxt "TFORM1.BUTTON7.CAPTION"
 msgid "Get status"
 msgstr "Állapotlekérés"
 
