@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+if [ "$1" = "configure" ]; then
+  if [ -d /usr/doc -a ! -e /usr/doc/mm6dread -a -d /usr/share/doc/mm6dread ]; then
+    ln -sf /usr/share/doc/mm6dread /usr/doc/mm6dread
+  fi
+fi

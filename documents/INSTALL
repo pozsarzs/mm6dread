@@ -17,11 +17,11 @@ a. From source package
 b. From binary package
 
    Install:
-   # tar -xzf mm6dread-0.1-i586.tar.gz
+   # tar -xzf mm6dread-0.1-*.tar.gz
    # cd mm6dread
    # ./create_links
             or
-   # tar -xzf mm6dread-0.1-i586.tar.gz
+   # tar -xzf mm6dread-0.1-*.tar.gz
    # cd mm6dread
    # ./install
 
