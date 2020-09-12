@@ -14,7 +14,7 @@ all:
 	@echo "- Compiling source code..."
 	@mkdir -p ./lib/$(architecture)-$(os)/
 	@for x in $(srcfiles); do \
-	  if [ -e $$x ]; then ppc386 $(fpflag) $$x; echo ""; fi; \
+	  if [ -e $$x ]; then fpc  $(fpflag) $$x; echo ""; fi; \
 	done
 	@echo "done."
 

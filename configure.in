@@ -14,7 +14,7 @@ AC_PATH_PROG(install, install, no)
 
 AC_CHECK_PROGS(make, gmake make)
 test "$make" = "" && AC_MSG_ERROR(Make not found!)
-AC_CHECK_PROGS(hfpc,ppc386,no)
+AC_CHECK_PROGS(hfpc,fpc,no)
 test x"$hfpc" = xno && AC_MSG_ERROR(FreePascal compiler not found!)
 
 lcldir=`find /usr -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
@@ -25,8 +25,8 @@ test x"$prefix" = xNONE && prefix="$ac_default_prefix"
 
 AC_CHECK_FILE(documents/VERSION,,AC_MSG_ERROR(VERSION file not found!))
 version=`cat documents/VERSION`
-os=`ppc386 -iSO`
-architecture=`ppc386 -iSP`
+os=`fpc -iSO`
+architecture=`fpc -iSP`
 
 mandir="$prefix/man"
 test "$os" = "linux" && mandir="$datarootdir/man"
