@@ -2,8 +2,8 @@ Package: mm6dread
 Version: 0.2
 Section: misc
 Priority: extra
-Architecture: armhf
-Installed-Size: 5040 kB
+Architecture: i386
+Installed-Size: 5212 kB
 Maintainer: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
 Depends: libc6, libglib2.0-0, libgtk2.0-0
 Description: Status reader program for MM6D device

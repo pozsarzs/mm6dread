@@ -1,0 +1,11 @@
+66b9f6c9f6902c1cf592d3afd73b31fb  usr/bin/mm6dread
+2524529e492381f0433484ee493799fe  usr/share/applications/mm6dread.desktop
+4994f4cacf022e01ffda29f5627f7ab5  usr/share/doc/mm6dread/AUTHORS
+1a5d8dea3c99d471b7ff2459c9d5db97  usr/share/doc/mm6dread/changelog.Debian.gz
+f4492b6846071e6b1fe1f801cb82f9b2  usr/share/doc/mm6dread/copyright
+ceef095a58b3aa9ec16b097ee7f1ea96  usr/share/doc/mm6dread/README
+41cf1884673a8ad6f57cff3abca53ee2  usr/share/doc/mm6dread/VERSION
+2a82528ad96785b96104bb1b452ebb31  usr/share/locale/hu/LC_MESSAGES/mm6dread.mo
+aa4e48712f9e924fea77ea11cae97051  usr/share/man/man1/mm6dread.1.gz
+1ec21ca645211086ce332af73459a5f3  usr/share/menu/mm6dread
+103da7d9d3ed00f1433816a8405ca64e  usr/share/pixmaps/mm6dread.xpm
