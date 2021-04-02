@@ -1,10 +1,8 @@
 @echo off
-rem ----------------------------------------------------------------------------
-rem  MM6DRead v0.1 * Status reader program for MM6D device
-rem  Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>
+rem  MM6DRead v0.2 * Status reader program for MM6D device
+rem  Copyright (C) 2020-2021 Pozsár Zsolt pozsar.zsolt@szerafingomba.hu
 rem  build.bat
 rem  Utility for build/install/uninstall application on Windows
-rem ----------------------------------------------------------------------------
 
 set PPC=c:\lazarus\fpc\3.0.4\bin\i386-win32\ppc386.exe
 set LAZ=c:\lazarus\

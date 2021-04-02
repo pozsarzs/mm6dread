@@ -6,7 +6,7 @@ Installation instruction for source and binary tar.gz package
 a. From source package
 
    Build and install:
-   $ tar -xzf mm6dread-0.1.tar.gz
+   $ tar -xzf mm6dread-0.2.tar.gz
    $ ./configure
    $ make
    # make install
@@ -17,11 +17,11 @@ a. From source package
 b. From binary package
 
    Install:
-   # tar -xzf mm6dread-0.1-*.tar.gz
+   # tar -xzf mm6dread-0.2-*.tar.gz
    # cd mm6dread
    # ./create_links
             or
-   # tar -xzf mm6dread-0.1-*.tar.gz
+   # tar -xzf mm6dread-0.2-*.tar.gz
    # cd mm6dread
    # ./install
 
@@ -38,7 +38,7 @@ b. From binary package
 a. From source package
 
    Build and install:
-   > tar -xzf mm6dread-0.1.tar.gz
+   > tar -xzf mm6dread-0.2.tar.gz
    > build.bat
    > build.bat install
 
@@ -47,7 +47,7 @@ a. From source package
 
 c. From binary package
 
-   > unzip mm6dread-0.1-win32.zip
+   > unzip mm6dread-0.2-win32.zip
 
 ---------------------------------------------------------------------------------
- MM6DRead * Copyright (C) 2020 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
+ MM6DRead * Copyright (C) 2020-2021 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>

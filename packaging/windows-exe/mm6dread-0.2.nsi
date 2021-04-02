@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "MM6DRead"
-!define PRODUCT_VERSION "0.1"
+!define PRODUCT_VERSION "0.2"
 !define PRODUCT_PUBLISHER "Pozsar Zsolt"
 !define PRODUCT_WEB_SITE "http://www.szerafingomba.hu/softwares/"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\mm6dread.exe"
@@ -49,7 +49,7 @@ LicenseLangString MUILicense ${LANG_HUNGARIAN} "mm6dread\LICENCE"
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "mm6dread-0.1-win32.exe"
+OutFile "mm6dread-0.2-win32.exe"
 InstallDir "$PROGRAMFILES\MM6DRead"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show

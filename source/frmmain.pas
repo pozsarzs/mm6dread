@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM6DRead v0.1 * Status reader program for MM6D device                    | }
-{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          | }
+{ | MM6DRead v0.2 * Status reader program for MM6D device                    | }
+{ | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | frmmain.pas                                                              | }
 { | Main form                                                                | }
 { +--------------------------------------------------------------------------+ }
@@ -19,52 +19,44 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, Buttons, ExtCtrls, untcommonproc;
+  StdCtrls, Buttons, ExtCtrls, ValEdit, StrUtils, untcommonproc;
 
 type
   { TForm1 }
   TForm1 = class(TForm)
-    Bevel1: TBevel;
-    Bevel4: TBevel;
+    Bevel10: TBevel;
     Bevel5: TBevel;
     Bevel6: TBevel;
+    Bevel7: TBevel;
     Bevel8: TBevel;
-    Button1: TButton;
+    Bevel9: TBevel;
     Button10: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    Button6: TButton;
-    Button7: TButton;
-    Button8: TButton;
-    Button9: TButton;
     ComboBox1: TComboBox;
     Edit1: TEdit;
-    GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
-    Label5: TLabel;
+    GroupBox4: TGroupBox;
+    Label10: TLabel;
+    Label11: TLabel;
     Label6: TLabel;
     Label7: TLabel;
+    Label8: TLabel;
     Label9: TLabel;
-    Shape3: TShape;
+    Memo1: TMemo;
+    PageControl1: TPageControl;
     Shape4: TShape;
     Shape5: TShape;
+    Shape6: TShape;
     Shape7: TShape;
+    Shape8: TShape;
+    Shape9: TShape;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     StatusBar1: TStatusBar;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    ValueListEditor1: TValueListEditor;
     procedure Button10Click(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
-    procedure Button5Click(Sender: TObject);
-    procedure Button6Click(Sender: TObject);
-    procedure Button7Click(Sender: TObject);
-    procedure Button8Click(Sender: TObject);
-    procedure Button9Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -82,13 +74,27 @@ var
 
 const
   CNTNAME = 'MM6D';
-  CNTVER = '0.1';
+  CNTVER = '0.3';
 
 resourcestring
   MESSAGE01 = 'Cannot read configuration file!';
   MESSAGE02 = 'Cannot write configuration file!';
   MESSAGE03 = 'Cannot read data from this URL!';
   MESSAGE04 = 'Not compatible controller!';
+  MESSAGE05 = 'name';
+  MESSAGE06 = 'value';
+  MESSAGE07 = 'IP address:';
+  MESSAGE08 = 'MAC address:';
+  MESSAGE09 = 'Serial number:';
+  MESSAGE10 = 'Sw. version:';
+  MESSAGE11 = 'Mode:';
+  MESSAGE12 = 'Manual switches:';
+  MESSAGE13 = 'Overcurrent protection:';
+  MESSAGE14 = 'Alarm:';
+  MESSAGE15 = 'Lamp output:';
+  MESSAGE16 = 'Ventilator output:';
+  MESSAGE17 = 'Heater output:';
+
 
 implementation
 
@@ -132,30 +138,12 @@ begin
   begin
     SpeedButton2.Enabled := False;
     SpeedButton3.Enabled := False;
-    Button1.Enabled := False;
-    Button2.Enabled := False;
-    Button3.Enabled := False;
-    Button4.Enabled := False;
-    Button5.Enabled := False;
-    Button6.Enabled := False;
-    Button7.Enabled := False;
-    Button8.Enabled := False;
-    Button9.Enabled := False;
     Button10.Enabled := False;
   end
   else
   begin
     SpeedButton2.Enabled := True;
     SpeedButton3.Enabled := True;
-    Button1.Enabled := True;
-    Button2.Enabled := True;
-    Button3.Enabled := True;
-    Button4.Enabled := True;
-    Button5.Enabled := True;
-    Button6.Enabled := True;
-    Button7.Enabled := True;
-    Button8.Enabled := True;
-    Button9.Enabled := True;
     Button10.Enabled := True;
   end;
 end;
@@ -174,135 +162,194 @@ begin
     Result := 2;
 end;
 
-procedure turnonoff(cmd: byte);
+// refresh displays
+procedure TForm1.Button10Click(Sender: TObject);
 var
   good: boolean;
+  b: byte;
+  i: integer;
+const
+  s1a: string = '<br>';
+  s1b: string = '<td>';
+  s1c: string = '</td>';
+  s2: string = 'IP address:';
+  s3: string = 'MAC address:';
+  s4: string = 'Hardware serial number:';
+  s5: string = 'Software version:';
+  s6: string = '<td>Operation mode:</td>';
+  s7: string = '<td>Manual mode:</td>';
+  s8: string = '<td>Overcurrent protection:</td>';
+  s9: string = '<td>Alarm event:</td>';
+  s10: string = '<td>Lamp:</td>';
+  s11: string = '<td>Ventilator:</td>';
+  s12: string = '<td>Heater:</td>';
 begin
   case checkcompatibility(CNTNAME, CNTVER) of
-    0: Form1.StatusBar1.Panels.Items[0].Text :=
-        Value.Strings[0] + ' ' + Value.Strings[1];
+    0: StatusBar1.Panels.Items[0].Text := Value.Strings[0] + ' ' + Value.Strings[1];
     1:
     begin
       ShowMessage(MESSAGE04);
-      Form1.StatusBar1.Panels.Items[0].Text := '';
+      StatusBar1.Panels.Items[0].Text := '';
       exit;
     end;
-    2: Form1.StatusBar1.Panels.Items[0].Text := '';
+    2: StatusBar1.Panels.Items[0].Text := '';
   end;
-  good := getdatafromdevice(Form1.ComboBox1.Text, cmd, Form1.Edit1.Text);
+  // get log
+  good := getdatafromdevice(ComboBox1.Text, 2, Edit1.Text);
   if good then
-    if Value.Count <> 1 then
-      good := False
+  begin
+    // write log
+    Memo1.Clear;
+    for i := 0 to Value.Count - 1 do
+      if findpart('<tr><td><pre>', Value.Strings[i]) <> 0 then
+      begin
+        Value.Strings[i] := rmchr3(Value.Strings[i]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '<tr><td><pre>',
+          '', [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i],
+          '</pre></td><td><pre>', #9, [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '</pre></td></tr>',
+          '', [rfReplaceAll]);
+        Memo1.Lines.Insert(0, Value.Strings[i]);
+      end;
+    Memo1.SelStart := 0;
+    // get values
+    good := getdatafromdevice(ComboBox1.Text, 1, Edit1.Text);
+    // get IP address
+    for i := 0 to Value.Count - 1 do
+      if findpart(s2, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
+    Value.Strings[i] := stringreplace(Value.Strings[i], s2, '', [rfReplaceAll]);
+    Value.Strings[i] := rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1, 1] := Value.Strings[i];
+    // get MAC address
+    for i := 0 to Value.Count - 1 do
+      if findpart(s3, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
+    Value.Strings[i] := stringreplace(Value.Strings[i], s3, '', [rfReplaceAll]);
+    Value.Strings[i] := rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1, 2] := Value.Strings[i];
+    // get serial number
+    for i := 0 to Value.Count - 1 do
+      if findpart(s4, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
+    Value.Strings[i] := stringreplace(Value.Strings[i], s4, '', [rfReplaceAll]);
+    Value.Strings[i] := rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1, 3] := Value.Strings[i];
+    // get software version
+    for i := 0 to Value.Count - 1 do
+      if findpart(s5, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
+    Value.Strings[i] := stringreplace(Value.Strings[i], s5, '', [rfReplaceAll]);
+    Value.Strings[i] := rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1, 4] := Value.Strings[i];
+    // get operation mode
+    for i := 0 to Value.Count - 1 do
+      if findpart(s6, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    ValueListEditor1.Cells[1, 5] := Value.Strings[i + 1];
+    // get status of manual mode switches
+    for i := 0 to Value.Count - 1 do
+      if findpart(s7, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    ValueListEditor1.Cells[1, 6] := Value.Strings[i + 1];
+    // get status of overcurrent protection
+    for i := 0 to Value.Count - 1 do
+      if findpart(s8, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    ValueListEditor1.Cells[1, 7] := Value.Strings[i + 1];
+    // get status of alarm
+    for i := 0 to Value.Count - 1 do
+      if findpart(s9, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := rmchr2(Value.Strings[i + 1]);
+    ValueListEditor1.Cells[1, 8] := Value.Strings[i + 1];
+    // get status of lamp output
+    for i := 0 to Value.Count - 1 do
+      if findpart(s10, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    ValueListEditor1.Cells[1, 9] := Value.Strings[i + 1];
+    // get status of ventilator output
+    for i := 0 to Value.Count - 1 do
+      if findpart(s11, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    ValueListEditor1.Cells[1, 10] := Value.Strings[i + 1];
+    // get status of heater output
+    for i := 0 to Value.Count - 1 do
+      if findpart(s12, Value.Strings[i]) <> 0 then
+        break;
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+    Value.Strings[i + 1] := rmchr1(Value.Strings[i + 1]);
+    ValueListEditor1.Cells[1, 11] := Value.Strings[i + 1];
+    ValueListEditor1.AutoSizeColumns;
+    // write to display
+    // manual mode
+    if ValueListEditor1.Cells[1, 6] = 'ON' then
+      Shape4.Brush.Color := clYellow
     else
-      good := True;
-  if not good then
+      Shape4.Brush.Color := clOlive;
+    // overcurrent protection
+    if ValueListEditor1.Cells[1, 7] = 'Opened' then
+      Shape5.Brush.Color := clRed
+    else
+      Shape5.Brush.Color := clMaroon;
+    // outputs
+    if ValueListEditor1.Cells[1, 9] = 'ON' then
+      Shape6.Brush.Color := clLime
+    else
+      Shape6.Brush.Color := clGreen;
+    if ValueListEditor1.Cells[1, 10] = 'ON' then
+      Shape8.Brush.Color := clLime
+    else
+      Shape8.Brush.Color := clGreen;
+    if ValueListEditor1.Cells[1, 11] = 'ON' then
+      Shape9.Brush.Color := clLime
+    else
+      Shape9.Brush.Color := clGreen;
+    // alarm
+    if ValueListEditor1.Cells[1, 8] = 'Detected' then
+      Shape7.Brush.Color := clRed
+    else
+      Shape7.Brush.Color := clMaroon;
+  end
+  else
+  begin
+    Memo1.Clear;
+    Shape4.Brush.Color := clOlive;
+    Shape5.Brush.Color := clMaroon;
+    Shape6.Brush.Color := clGreen;
+    Shape8.Brush.Color := clGreen;
+    Shape9.Brush.Color := clGreen;
+    Shape7.Brush.Color := clMaroon;
+    ValueListEditor1.Cols[1].Clear;
     ShowMessage(MESSAGE03);
-end;
-
-// get input status
-procedure TForm1.Button10Click(Sender: TObject);
-var
-  ledoff, ledon: TColor;
-  good: boolean;
-
-begin
-  ledoff := clGreen;
-  ledon := clLime;
-  Shape3.Brush.Color := ledoff;
-  Shape4.Brush.Color := ledoff;
-  Shape5.Brush.Color := ledoff;
-  good := getdatafromdevice(ComboBox1.Text, 1, Edit1.Text);
-  if good then
-  begin
-    if Value.Strings[1] = '1' then
-      Shape3.Brush.Color := ledon
-    else
-      Shape3.Brush.Color := ledoff;
-    if Value.Strings[2] = '1' then
-      Shape4.Brush.Color := ledon
-    else
-      Shape4.Brush.Color := ledoff;
-    if Value.Strings[3] = '1' then
-      Shape5.Brush.Color := ledon
-    else
-      Shape5.Brush.Color := ledoff;
-  end
-  else
-  begin
-    Shape3.Brush.Color := ledoff;
-    Shape4.Brush.Color := ledoff;
-    Shape5.Brush.Color := ledoff;
   end;
-end;
-
-// get alarm status
-procedure TForm1.Button7Click(Sender: TObject);
-var
-  ledoff, ledon: TColor;
-  good: boolean;
-begin
-  ledoff := clMaroon;
-  ledon := clred;
-  Shape7.Brush.Color := ledoff;
-  good := getdatafromdevice(ComboBox1.Text, 9, Edit1.Text);
-  if good then
-  begin
-    if Value.Strings[0] = '1' then
-      Shape7.Brush.Color := ledon
-    else
-      Shape7.Brush.Color := ledoff;
-  end
-  else
-    Shape7.Brush.Color := ledoff;
-end;
-
-// turn off lamps
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  turnonoff(3);
-end;
-
-// turn on lamps
-procedure TForm1.Button2Click(Sender: TObject);
-begin
-  turnonoff(4);
-end;
-
-// turn off ventilators
-procedure TForm1.Button4Click(Sender: TObject);
-begin
-  turnonoff(5);
-end;
-
-// turn on ventilators
-procedure TForm1.Button3Click(Sender: TObject);
-begin
-  turnonoff(6);
-end;
-
-// turn off heaters
-procedure TForm1.Button5Click(Sender: TObject);
-begin
-  turnonoff(7);
-end;
-
-// turn on heaters
-procedure TForm1.Button6Click(Sender: TObject);
-begin
-  turnonoff(8);
-end;
-
-// turn off all outputs
-procedure TForm1.Button8Click(Sender: TObject);
-begin
-  turnonoff(2);
-end;
-
-// restore alarm status
-procedure TForm1.Button9Click(Sender: TObject);
-begin
-  turnonoff(13);
-  Button7Click(Sender);
 end;
 
 // events of Form1
@@ -323,7 +370,22 @@ begin
   for b := 0 to 63 do
     if length(urls[b]) > 0 then
       ComboBox1.Items.Add(untcommonproc.urls[b]);
+  // others
   untcommonproc.Value := TStringList.Create;
+  ValueListEditor1.Cells[0, 0] := MESSAGE05;
+  ValueListEditor1.Cells[1, 0] := MESSAGE06;
+  ValueListEditor1.Cells[0, 1] := MESSAGE07;
+  ValueListEditor1.Cells[0, 2] := MESSAGE08;
+  ValueListEditor1.Cells[0, 3] := MESSAGE09;
+  ValueListEditor1.Cells[0, 4] := MESSAGE10;
+  ValueListEditor1.Cells[0, 5] := MESSAGE11;
+  ValueListEditor1.Cells[0, 6] := MESSAGE12;
+  ValueListEditor1.Cells[0, 7] := MESSAGE13;
+  ValueListEditor1.Cells[0, 8] := MESSAGE14;
+  ValueListEditor1.Cells[0, 9] := MESSAGE15;
+  ValueListEditor1.Cells[0, 10] := MESSAGE16;
+  ValueListEditor1.Cells[0, 11] := MESSAGE17;
+  ValueListEditor1.AutoSizeColumn(0);
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);

@@ -5,3 +5,4 @@ if [ "$1" = "configure" ]; then
     ln -sf /usr/share/doc/mm6dread /usr/doc/mm6dread
   fi
 fi
+if which update-menus > /dev/null; then update-menus ; fi

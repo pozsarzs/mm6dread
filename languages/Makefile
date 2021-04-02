@@ -1,6 +1,6 @@
 # +----------------------------------------------------------------------------+
-# | MM6DRead v0.1 * Status reader program for MM6D device                      |
-# | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>            |
+# | MM6DRead v0.2 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>       |
 # | Makefile                                                                   |
 # | Makefile for translations                                                  |
 # +----------------------------------------------------------------------------+

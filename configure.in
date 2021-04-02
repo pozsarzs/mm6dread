@@ -1,6 +1,6 @@
 dnl +--------------------------------------------------------------------------+
-dnl | MM6DRead v0.1 * Status reader program for MM6D device                    |
-dnl | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          |
+dnl | MM6DRead v0.2 * Status reader program for MM6D device                    |
+dnl | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     |
 dnl | configure.in                                                             |
 dnl | Autoconf input file for unix-like systems                                |
 dnl +--------------------------------------------------------------------------+

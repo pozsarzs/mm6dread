@@ -12,16 +12,16 @@ a. Visit homepage (see later) to download installer packages:
 
   architecture  operation system        filename
   --------------------------------------------------------------------
-  (all)         (source code)           mm6dread-0.1.tar.gz
-  armhf         Linux                   mm6dread-0.1-armhf.bin
-  armhf         Linux                   mm6dread-0.1-armhf.tar.gz
-  armhf         Raspbian OS             mm6dread_0.1-1_armhf.deb
-  i386          Debian GNU/Linux        mm6dread_0.1-1_i386.deb
-  i586          Linux                   mm6dread-0.1-i586.bin
-  i586          Linux                   mm6dread-0.1-i586.tar.gz
-  i586          Windows 32 bit          mm6dread-0.1-win32.exe
-  i586          Windows 32 bit          mm6dread-0.1-win32.msi
-  i586          Windows 32 bit          mm6dread-0.1-win32.zip
+  (all)         (source code)           mm6dread-0.2.tar.gz
+  armhf         Linux                   mm6dread-0.2-armhf.bin
+  armhf         Linux                   mm6dread-0.2-armhf.tar.gz
+  armhf         Raspbian OS             mm6dread_0.2-1_armhf.deb
+  i386          Debian GNU/Linux        mm6dread_0.2-1_i386.deb
+  i586          Linux                   mm6dread-0.2-i586.bin
+  i586          Linux                   mm6dread-0.2-i586.tar.gz
+  i586          Windows 32 bit          mm6dread-0.2-win32.exe
+  i586          Windows 32 bit          mm6dread-0.2-win32.msi
+  i586          Windows 32 bit          mm6dread-0.2-win32.zip
 
 b. Download from Github
 
@@ -54,4 +54,4 @@ c. Download from Debian repository
                          Hungary
 
 ---------------------------------------------------------------------------------
- MM6DRead * Copyright (C) 2020 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
+ MM6DRead * Copyright (C) 2020-2021 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>

@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM6DRead v0.1 * Status reader program for MM6D device                    | }
-{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          | }
+{ | MM6DRead v0.2 * Status reader program for MM6D device                    | }
+{ | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | untcommonproc.pas                                                        | }
 { | Common functions and procedures                                          | }
 { +--------------------------------------------------------------------------+ }
@@ -22,7 +22,7 @@ uses
 
 var
   Value: TStringList;
-  green, yellow, red: boolean;
+//  green, yellow, red: boolean;
   exepath: shortstring;
   lang: string[2];
   uids: string;
@@ -41,6 +41,9 @@ const
   {$I config.pas.in}
 {$ENDIF}
 
+function rmchr1(input: string): string;
+function rmchr2(input: string): string;
+function rmchr3(input: string): string;
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 function getexepath: string;
 function getlang: string;
@@ -56,31 +59,45 @@ function SHGetFolderPath(hwndOwner: HWND; nFolder: integer; hToken: THandle;
 
 implementation
 
+// remove all space and tabulator
+function rmchr1(input: string): string;
+var
+  b: byte;
+begin
+  rmchr1 := '';
+  for b:=1 to length(input) do
+    if (input[b]<> #32) and (input[b]<> #9) then rmchr1 := rmchr1+input[b];
+end;
+
+// remove space and tabulator from end of line
+function rmchr2(input: string): string;
+var
+  b: byte;
+begin
+  rmchr2 := '';
+  for b:=length(input) downto 1 do
+    if (input[b]=#32) or (input[b]=#9) then delete(input,b,1) else break;
+  rmchr2 := input;
+end;
+
+// remove space and tabulator from start of line
+function rmchr3(input: string): string;
+begin
+  rmchr3 := '';
+  while (input[1]=#9) or (input[1]=#32) do delete(input,1,1);
+  rmchr3 := input;
+end;
+
 // get data from controller device via http
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 const
-  cmdstr: array[0..13] of string = ('version',
-    'get/all',
-    'set/all/off',
-    'set/lamp/off',
-    'set/lamp/on',
-    'set/ventilator/off',
-    'set/ventilator/on',
-    'set/heater/off',
-    'set/heater/on',
-    'get/alarm',
-    'get/manualswitch',
-    'get/operationmode',
-    'get/protection',
-    'set/alarm/off');
-
+  cmdstr: array[0..2] of string = ('version','summary','log');
 begin
   getdatafromdevice := True;
   Value.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then
-      getdatafromdevice := False;
+    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then  getdatafromdevice := False;
     Free;
   end;
 end;
