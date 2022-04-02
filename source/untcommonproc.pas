@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM6DRead v0.2 * Status reader program for MM6D device                    | }
-{ | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM6DRead v0.3 * Status reader program for MM6D device                    | }
+{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | untcommonproc.pas                                                        | }
 { | Common functions and procedures                                          | }
 { +--------------------------------------------------------------------------+ }
@@ -22,7 +22,7 @@ uses
 
 var
   Value: TStringList;
-//  green, yellow, red: boolean;
+  //  green, yellow, red: boolean;
   exepath: shortstring;
   lang: string[2];
   uids: string;
@@ -65,8 +65,9 @@ var
   b: byte;
 begin
   rmchr1 := '';
-  for b:=1 to length(input) do
-    if (input[b]<> #32) and (input[b]<> #9) then rmchr1 := rmchr1+input[b];
+  for b := 1 to length(input) do
+    if (input[b] <> #32) and (input[b] <> #9) then
+      rmchr1 := rmchr1 + input[b];
 end;
 
 // remove space and tabulator from end of line
@@ -75,8 +76,11 @@ var
   b: byte;
 begin
   rmchr2 := '';
-  for b:=length(input) downto 1 do
-    if (input[b]=#32) or (input[b]=#9) then delete(input,b,1) else break;
+  for b := length(input) downto 1 do
+    if (input[b] = #32) or (input[b] = #9) then
+      Delete(input, b, 1)
+    else
+      break;
   rmchr2 := input;
 end;
 
@@ -84,20 +88,22 @@ end;
 function rmchr3(input: string): string;
 begin
   rmchr3 := '';
-  while (input[1]=#9) or (input[1]=#32) do delete(input,1,1);
+  while (input[1] = #9) or (input[1] = #32) do
+    Delete(input, 1, 1);
   rmchr3 := input;
 end;
 
 // get data from controller device via http
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 const
-  cmdstr: array[0..2] of string = ('version','summary','log');
+  cmdstr: array[0..2] of string = ('version', 'summary', 'log');
 begin
   getdatafromdevice := True;
   Value.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then  getdatafromdevice := False;
+    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then
+      getdatafromdevice := False;
     Free;
   end;
 end;
@@ -137,7 +143,7 @@ begin
  {$ENDIF}
   if length(s) = 0 then
     s := 'en';
-    lang := lowercase(s[1..2]);
+  lang := lowercase(s[1..2]);
   getlang := lang;
 end;
 

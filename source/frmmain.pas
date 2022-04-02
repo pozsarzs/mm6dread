@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM6DRead v0.2 * Status reader program for MM6D device                    | }
-{ | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM6DRead v0.3 * Status reader program for MM6D device                    | }
+{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | frmmain.pas                                                              | }
 { | Main form                                                                | }
 { +--------------------------------------------------------------------------+ }
@@ -24,6 +24,7 @@ uses
 type
   { TForm1 }
   TForm1 = class(TForm)
+    Bevel1: TBevel;
     Bevel10: TBevel;
     Bevel5: TBevel;
     Bevel6: TBevel;
@@ -35,8 +36,12 @@ type
     Edit1: TEdit;
     GroupBox3: TGroupBox;
     GroupBox4: TGroupBox;
+    Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
@@ -55,6 +60,7 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
     ValueListEditor1: TValueListEditor;
     procedure Button10Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
@@ -94,6 +100,8 @@ resourcestring
   MESSAGE15 = 'Lamp output:';
   MESSAGE16 = 'Ventilator output:';
   MESSAGE17 = 'Heater output:';
+  MESSAGE18 = 'Your IP address is not allowed!';
+  MESSAGE19 = 'Authentication error!';
 
 
 implementation
@@ -165,7 +173,6 @@ end;
 // refresh displays
 procedure TForm1.Button10Click(Sender: TObject);
 var
-  good: boolean;
   b: byte;
   i: integer;
 const
@@ -184,8 +191,18 @@ const
   s11: string = '<td>Ventilator:</td>';
   s12: string = '<td>Heater:</td>';
 begin
+  // clear pages
+  Shape4.Brush.Color := clOlive;
+  Shape5.Brush.Color := clMaroon;
+  Shape6.Brush.Color := clGreen;
+  Shape8.Brush.Color := clGreen;
+  Shape9.Brush.Color := clGreen;
+  Shape7.Brush.Color := clMaroon;
+  ValueListEditor1.Cols[1].Clear;
+  Memo1.Clear;
+  // check compatibility
   case checkcompatibility(CNTNAME, CNTVER) of
-    0: StatusBar1.Panels.Items[0].Text := Value.Strings[0] + ' ' + Value.Strings[1];
+    0: StatusBar1.Panels.Items[0].Text := Value.Strings[0] + ' v' + Value.Strings[1];
     1:
     begin
       ShowMessage(MESSAGE04);
@@ -194,31 +211,23 @@ begin
     end;
     2: StatusBar1.Panels.Items[0].Text := '';
   end;
-  // get log
-  good := getdatafromdevice(ComboBox1.Text, 2, Edit1.Text);
-  if good then
+  // get values
+  if getdatafromdevice(ComboBox1.Text, 1, Edit1.Text) then
   begin
-    // write log
-    Memo1.Clear;
-    for i := 0 to Value.Count - 1 do
-      if findpart('<tr><td><pre>', Value.Strings[i]) <> 0 then
-      begin
-        Value.Strings[i] := rmchr3(Value.Strings[i]);
-        Value.Strings[i] := stringreplace(Value.Strings[i], '<tr><td><pre>',
-          '', [rfReplaceAll]);
-        Value.Strings[i] := stringreplace(Value.Strings[i],
-          '</pre></td><td><pre>', #9, [rfReplaceAll]);
-        Value.Strings[i] := stringreplace(Value.Strings[i], '</pre></td></tr>',
-          '', [rfReplaceAll]);
-        Memo1.Lines.Insert(0, Value.Strings[i]);
-      end;
-    Memo1.SelStart := 0;
-    // get values
-    good := getdatafromdevice(ComboBox1.Text, 1, Edit1.Text);
     // get IP address
     for i := 0 to Value.Count - 1 do
       if findpart(s2, Value.Strings[i]) <> 0 then
         break;
+    if Value.Strings[i] = 'Not allowed client IP address!' then
+    begin
+      ShowMessage(MESSAGE18);
+      exit;
+    end;
+    if Value.Strings[i] = 'Authentication error!' then
+    begin
+      ShowMessage(MESSAGE19);
+      exit;
+    end;
     Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
     Value.Strings[i] := stringreplace(Value.Strings[i], s2, '', [rfReplaceAll]);
     Value.Strings[i] := rmchr1(Value.Strings[i]);
@@ -340,15 +349,31 @@ begin
   end
   else
   begin
-    Memo1.Clear;
-    Shape4.Brush.Color := clOlive;
-    Shape5.Brush.Color := clMaroon;
-    Shape6.Brush.Color := clGreen;
-    Shape8.Brush.Color := clGreen;
-    Shape9.Brush.Color := clGreen;
-    Shape7.Brush.Color := clMaroon;
-    ValueListEditor1.Cols[1].Clear;
     ShowMessage(MESSAGE03);
+    exit;
+  end;
+  // get log
+  if getdatafromdevice(ComboBox1.Text, 2, Edit1.Text) then
+  begin
+    // write log
+    for i := 0 to Value.Count - 1 do
+      if findpart('<tr><td><pre>', Value.Strings[i]) <> 0 then
+      begin
+        Value.Strings[i] := rmchr3(Value.Strings[i]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '<tr><td><pre>',
+          '', [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i],
+          '</pre></td><td><pre>', #9, [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '</pre></td></tr>',
+          '', [rfReplaceAll]);
+        Memo1.Lines.Insert(0, Value.Strings[i]);
+      end;
+    Memo1.SelStart := 0;
+  end
+  else
+  begin
+    ShowMessage(MESSAGE03);
+    exit;
   end;
 end;
 
@@ -361,6 +386,7 @@ begin
   getlang;
   getexepath;
   Form1.Caption := APPNAME + ' v' + VERSION;
+  Label1.Caption := Form1.Caption;
   // load configuration
   inifile := untcommonproc.userdir + DIR_CONFIG + 'mm6dread.ini';
   if FileSearch('mm6dread.ini', untcommonproc.userdir + DIR_CONFIG) <> '' then

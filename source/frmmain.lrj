@@ -1,0 +1,23 @@
+{"version":1,"strings":[
+{"hash":5073153,"name":"tform1.caption","sourcebytes":[70,111,114,109,49],"value":"Form1"},
+{"hash":23148,"name":"tform1.combobox1.hint","sourcebytes":[85,82,76],"value":"URL"},
+{"hash":223156596,"name":"tform1.speedbutton2.hint","sourcebytes":[65,100,100,32,85,82,76,32,116,111,32,108,105,115,116],"value":"Add URL to list"},
+{"hash":64987076,"name":"tform1.speedbutton3.hint","sourcebytes":[82,101,109,111,118,101,32,85,82,76,32,102,114,111,109,32,108,105,115,116],"value":"Remove URL from list"},
+{"hash":22996,"name":"tform1.edit1.hint","sourcebytes":[85,73,68],"value":"UID"},
+{"hash":95062979,"name":"tform1.tabsheet1.caption","sourcebytes":[83,116,97,116,117,115],"value":"Status"},
+{"hash":178830848,"name":"tform1.groupbox3.caption","sourcebytes":[32,83,116,97,116,117,115,32],"value":" Status "},
+{"hash":129417237,"name":"tform1.label6.caption","sourcebytes":[77,97,110,117,97,108,32,109,111,100,101],"value":"Manual mode"},
+{"hash":125051838,"name":"tform1.label7.caption","sourcebytes":[79,118,101,114,99,117,114,114,101,110,116,32,112,114,111,116,101,99,116,105,111,110],"value":"Overcurrent protection"},
+{"hash":52953907,"name":"tform1.label9.caption","sourcebytes":[65,108,97,114,109,32,115,116,97,116,117,115],"value":"Alarm status"},
+{"hash":213380656,"name":"tform1.groupbox4.caption","sourcebytes":[32,79,117,116,112,117,116,115,32],"value":" Outputs "},
+{"hash":337984,"name":"tform1.label8.caption","sourcebytes":[76,97,109,112],"value":"Lamp"},
+{"hash":185026354,"name":"tform1.label10.caption","sourcebytes":[86,101,110,116,105,108,97,116,111,114],"value":"Ventilator"},
+{"hash":82545346,"name":"tform1.label11.caption","sourcebytes":[72,101,97,116,101,114],"value":"Heater"},
+{"hash":180631753,"name":"tform1.tabsheet2.caption","sourcebytes":[83,117,109,109,97,114,121],"value":"Summary"},
+{"hash":180020215,"name":"tform1.tabsheet3.caption","sourcebytes":[83,121,115,116,101,109,32,108,111,103],"value":"System log"},
+{"hash":4691652,"name":"tform1.tabsheet4.caption","sourcebytes":[65,98,111,117,116],"value":"About"},
+{"hash":64456117,"name":"tform1.label2.caption","sourcebytes":[83,116,97,116,117,115,32,114,101,97,100,101,114,32,112,114,111,103,114,97,109,32,102,111,114,32,77,77,54,68,32,100,101,118,105,99,101],"value":"Status reader program for MM6D device"},
+{"hash":173422180,"name":"tform1.label3.caption","sourcebytes":[40,67,41,32,50,48,50,48,45,50,48,50,50,32,80,111,122,115,195,161,114,32,90,115,111,108,116],"value":"(C) 2020-2022 Pozs\u00E1r Zsolt"},
+{"hash":32023139,"name":"tform1.label4.caption","sourcebytes":[87,101,98,58,32,104,116,116,112,58,47,47,119,119,119,46,115,122,101,114,97,102,105,110,103,111,109,98,97,46,104,117,47,115,111,102,116,119,97,114,101,115],"value":"Web: http://www.szerafingomba.hu/softwares"},
+{"hash":146640424,"name":"tform1.button10.caption","sourcebytes":[38,82,101,102,114,101,115,104],"value":"&Refresh"}
+]}

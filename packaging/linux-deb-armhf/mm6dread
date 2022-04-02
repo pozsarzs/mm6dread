@@ -1,2 +1,0 @@
-?package(mm6dread):needs="X11" section="Applications/Network/Monitoring"\
-  title="MM6DRead" command="mm6dread"

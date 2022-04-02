@@ -1,3 +1,10 @@
+mm6dread (0.3) unstable; urgency=low
+
+  * New page for 'about'.
+  * Some bugfix.
+
+ -- Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>  Sat, 02 Apr 2022 10:43:59
+
 mm6dread (0.2) unstable; urgency=low
 
   * New surface.
@@ -5,10 +12,10 @@ mm6dread (0.2) unstable; urgency=low
   * Added detailed summary and system log page.
   * Compatible with MM6D-sw v0.3 or newer.
 
- -- Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>  Fri, 02 Apr 2021 08:55:19
+ -- Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>  Fri, 02 Apr 2021 08:55:19
 
 mm6dread (0.1) unstable; urgency=low
 
   * Initial Release.
 
- -- Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>  Wed, 02 Sep 2020 11:12:00
+ -- Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>  Wed, 02 Sep 2020 11:12:00
