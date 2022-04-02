@@ -173,7 +173,6 @@ end;
 // refresh displays
 procedure TForm1.Button10Click(Sender: TObject);
 var
-  b: byte;
   i: integer;
 const
   s1a: string = '<br>';

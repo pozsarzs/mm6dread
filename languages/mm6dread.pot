@@ -17,62 +17,108 @@ msgstr ""
 msgid "Not compatible controller!"
 msgstr ""
 
-#: tform1.button1.caption
-msgid "Lamp off"
+#: frmmain.message05
+msgid "name"
+msgstr ""
+
+#: frmmain.message06
+msgid "value"
+msgstr ""
+
+#: frmmain.message07
+msgid "IP address:"
+msgstr ""
+
+#: frmmain.message08
+msgid "MAC address:"
+msgstr ""
+
+#: frmmain.message09
+msgid "Serial number:"
+msgstr ""
+
+#: frmmain.message10
+msgid "Sw. version:"
+msgstr ""
+
+#: frmmain.message11
+msgid "Mode:"
+msgstr ""
+
+#: frmmain.message12
+msgid "Manual switches:"
+msgstr ""
+
+#: frmmain.message13
+msgid "Overcurrent protection:"
+msgstr ""
+
+#: frmmain.message14
+msgid "Alarm:"
+msgstr ""
+
+#: frmmain.message15
+msgid "Lamp output:"
+msgstr ""
+
+#: frmmain.message16
+msgid "Ventilator output:"
+msgstr ""
+
+#: frmmain.message17
+msgid "Heater output:"
+msgstr ""
+
+#: frmmain.message18
+msgid "Your IP address is not allowed!"
+msgstr ""
+
+#: frmmain.message19
+msgid "Authentication error!"
 msgstr ""
 
 #: tform1.button10.caption
-msgctxt "TFORM1.BUTTON10.CAPTION"
-msgid "Get status"
+msgid "&Refresh"
 msgstr ""
 
-#: tform1.button2.caption
-msgid "Lamp on"
+#: tform1.caption
+msgid "Form1"
 msgstr ""
 
-#: tform1.button3.caption
-msgid "Ventilator on"
+#: tform1.combobox1.hint
+msgid "URL"
 msgstr ""
 
-#: tform1.button4.caption
-msgid "Ventilator off"
-msgstr ""
-
-#: tform1.button5.caption
-msgid "Heater off"
-msgstr ""
-
-#: tform1.button6.caption
-msgid "Heater on"
-msgstr ""
-
-#: tform1.button7.caption
-msgctxt "tform1.button7.caption"
-msgid "Get status"
-msgstr ""
-
-#: tform1.button8.caption
-msgid "All off"
-msgstr ""
-
-#: tform1.button9.caption
-msgid "Restore status"
-msgstr ""
-
-#: tform1.groupbox1.caption
-msgid "Outputs"
-msgstr ""
-
-#: tform1.groupbox2.caption
-msgid "Alarm"
+#: tform1.edit1.hint
+msgid "UID"
 msgstr ""
 
 #: tform1.groupbox3.caption
-msgid "Inputs"
+msgid " Status "
 msgstr ""
 
-#: tform1.label5.caption
-msgid "Operation mode"
+#: tform1.groupbox4.caption
+msgid " Outputs "
+msgstr ""
+
+#: tform1.label10.caption
+msgid "Ventilator"
+msgstr ""
+
+#: tform1.label11.caption
+msgid "Heater"
+msgstr ""
+
+#: tform1.label2.caption
+msgid "Status reader program for MM6D device"
+msgstr ""
+
+#: tform1.label3.caption
+msgid "(C) 2020-2022 Pozsár Zsolt"
+msgstr ""
+
+#: tform1.label4.caption
+msgid "Web: http://www.szerafingomba.hu/softwares"
 msgstr ""
 
 #: tform1.label6.caption
@@ -81,6 +127,10 @@ msgstr ""
 
 #: tform1.label7.caption
 msgid "Overcurrent protection"
+msgstr ""
+
+#: tform1.label8.caption
+msgid "Lamp"
 msgstr ""
 
 #: tform1.label9.caption
@@ -93,5 +143,21 @@ msgstr ""
 
 #: tform1.speedbutton3.hint
 msgid "Remove URL from list"
+msgstr ""
+
+#: tform1.tabsheet1.caption
+msgid "Status"
+msgstr ""
+
+#: tform1.tabsheet2.caption
+msgid "Summary"
+msgstr ""
+
+#: tform1.tabsheet3.caption
+msgid "System log"
+msgstr ""
+
+#: tform1.tabsheet4.caption
+msgid "About"
 msgstr ""
 

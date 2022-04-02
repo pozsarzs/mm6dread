@@ -13,9 +13,9 @@ a. Visit homepage (see later) to download installer packages:
   architecture  operation system        filename
   --------------------------------------------------------------------
   (all)         (source code)           mm6dread-0.3.tar.gz
-  armhf         Linux                   mm6dread-0.3-armhf.bin
-  armhf         Linux                   mm6dread-0.3-armhf.tar.gz
-  armhf         Raspbian OS             mm6dread_0.3-1_armhf.deb
+  amd64         Linux                   mm6dread-0.3-amd64.bin
+  amd64         Linux                   mm6dread-0.3-amd64.tar.gz
+  amd64         Raspbian OS             mm6dread_0.3-1_amd64.deb
   i386          Debian GNU/Linux        mm6dread_0.3-1_i386.deb
   i586          Linux                   mm6dread-0.3-i586.bin
   i586          Linux                   mm6dread-0.3-i586.tar.gz
