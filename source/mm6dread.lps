@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="10"/>
+    <Version Value="9"/>
     <BuildModes Active="Default"/>
     <Units Count="7">
       <Unit0>
         <Filename Value="mm6dread.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
         <CursorPos Y="7"/>
         <UsageCount Value="59"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="frmmain.pas"/>
@@ -58,9 +58,6 @@
         <UsageCount Value="10"/>
       </Unit6>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
     <JumpHistory HistoryIndex="-1"/>
   </ProjectSession>
 </CONFIG>
