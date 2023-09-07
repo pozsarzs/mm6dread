@@ -1,6 +1,6 @@
 **MM6DRead * Status reader program for MM6D device**  
-Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>  
-Homepage: <http://www.szerafingomba.hu/softwares/>  
+Copyright (C) 2020-2022 Pozsár Zsolt <pozsarzs@gmail.com>  
+Homepage: <http://www.pozsarzs.hu>  
 GitHub: <https://github.com/pozsarzs/mm6dread>
 
 **Software**
