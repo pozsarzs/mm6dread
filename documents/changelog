@@ -1,3 +1,10 @@
+mm6dread (0.4) unstable; urgency=low
+
+  * Added scripts.
+  * Compatible with MM6D-sw v0.4 or newer.
+
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Sun, 12 Nov 2023 06:56:00
+
 mm6dread (0.3) unstable; urgency=low
 
   * New page for 'about'.

@@ -1,42 +1,58 @@
 # +----------------------------------------------------------------------------+
-# | MM6DRead v0.3 * Status reader program for MM6D device                      |
-# | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>       |
+# | MM6DRead v0.4 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
-# | Makefile for desktop files                                                 |
+# | Makefile for many files of the same type                                   |
 # +----------------------------------------------------------------------------+
 
 include ../Makefile.global
 
-desktopfiles= `ls *.desktop`
-iconfiles = `ls *.xpm`
+title="desktop files\t"
+removetargetdir=0
+sourcedir="."
+filemode=$(txtmode)
+targetdir1=$(datarootdir)/applications
+files1=`ls $(sourcedir)/*.desktop | grep -v Makefile`
+targetdir2=$(datarootdir)/pixmaps
+files2=`ls $(sourcedir)/*.xpm | grep -v Makefile`
 
 all:
 
 clean:
 
 install:
-	@echo -n "- Installing desktop files..."
-	@$(install) -d $(datarootdir)/applications
-	@for x in $(desktopfiles); do \
-	  if [ -e $$x ]; then $(install) -m $(txtmode) $$x $(datarootdir)/applications/; fi; \
+	@echo -n "- Installing "$(title)"["
+	@$(install) --directory $(targetdir1)
+	@for x in $(files1); do \
+	  if [ -f $(sourcedir)/$$x ]; \
+	  then \
+	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir1); \
+	    echo -n "#"; \
+	  fi \
 	done
-	@echo "done."
-	@echo -n "- Installing icon files..."
-	@$(install) -d $(datarootdir)/pixmaps
-	@for x in $(iconfiles); do \
-	  if [ -e $$x ]; then $(install) -m $(txtmode) $$x $(datarootdir)/pixmaps/; fi; \
+	@$(install) --directory $(targetdir2)
+	@for x in $(files2); do \
+	  if [ -f $(sourcedir)/$$x ]; \
+	  then \
+	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir2); \
+	    echo -n "#"; \
+	  fi \
 	done
-	@echo "done."
+	@echo "]"
 
 uninstall:
-	@echo -n "- Removing desktop files..."
-	@for x in $(desktopfiles); do \
-	  if [ -e $$x ]; then $(rm) $(datarootdir)/applications/$$x; fi; \
+	@echo -n "- Removing "$(title)"["
+	@for x in $(files1); do \
+	  $(rm) $(targetdir1)/$$x; \
+	  echo -n "#"; \
 	done
-	@echo "done."
-	@echo -n "- Removing icon files..."
-	@for x in $(iconfiles); do \
-	  if [ -e $$x ]; then $(rm) $(datarootdir)/pixmaps/$$x; fi; \
+	@for x in $(files2); do \
+	  $(rm) $(targetdir2)/$$x; \
+	  echo -n "#"; \
 	done
-	@echo "Done."
-
+	@if [ $(removetargetdir) -eq 1 ]; \
+	then \
+	  if [ -d $(targetdir1) ]; then $(rmdir) $(targetdir1); fi; \
+	  if [ -d $(targetdir2) ]; then $(rmdir) $(targetdir2); fi; \
+	fi;
+	@echo "]"

@@ -2,51 +2,46 @@
 # | MM6DRead v0.4 * Status reader program for MM6D device                      |
 # | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
-# | Makefile for manuals                                                       |
+# | Makefile for message files                                                 |
 # +----------------------------------------------------------------------------+
 
 include ../Makefile.global
 
-title="manuals\t\t"
+title="message files\t"
 removetargetdir=0
 sourcedir="."
-targetdir=$(mandir)
+targetdir=$(localedir)
 filemode=$(txtmode)
-man1files=`ls $(sourcedir)/*.1 | grep -v Makefile | grep -v '\.in'`
+languages = hu
 
 all:
 
 clean:
-	@for x in $(man1files); do \
-	  if [ -f $(sourcedir)/$$x ]; \
-	  then \
-	    $(rm) $(sourcedir)/$$x; \
-	  fi \
-	done
 
 install:
 	@echo -n "- Installing "$(title)"["
-	@$(install) --directory $(targetdir)/man1;
-	@for x in $(man1files); do \
-	  if [ -f $$x ]; \
+	@for x in $(languages); do \
+	  if [ -f $(name)_$$x.mo ]; \
 	  then \
-	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir)/man1/; \
+	    $(install) --directory $(targetdir)/$$x; \
+	    $(install) --mode $(filemode) $(sourcedir)/$(name)_$$x.mo $(targetdir)/$$x; \
+	    mv $(targetdir)/$$x/$(name)_$$x.mo $(targetdir)/$$x/$(name).mo; \
 	    echo -n "#"; \
-	    fi; \
+	  fi; \
 	done
 	@echo "]"
 
 uninstall:
 	@echo -n "- Removing "$(title)"["
-	@for x in $(man1files); do \
-	  if [ -f $$x ]; \
+	@for x in $(languages); do \
+	  if [ -f $(name)_$$x.mo ]; \
 	  then \
-	    $(rm) $(targetdir)/man1/$$x; \
+	    $(rm) $(targetdir)/$$x/$(name).mo; \
 	    echo -n "#"; \
 	  fi; \
+	  if [ $(removetargetdir) -eq 1 ]; \
+	  then \
+	    if [ -d $(targetdir)/$$x ]; then $(rmdir) $(targetdir)/$$x; fi; \
+	  fi; \
 	done
-	@if [ $(removetargetdir) -eq 1 ]; \
-	then \
-	  if [ -d $(targetdir)/man1 ]; then $(rmdir) $(targetdir)/man1; fi; \
-	fi;
 	@echo "]"

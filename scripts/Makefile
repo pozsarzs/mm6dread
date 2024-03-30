@@ -7,11 +7,11 @@
 
 include ../Makefile.global
 
-title="documentation\t"
-removetargetdir=1
+title="shell scripts\t"
+removetargetdir=0
 sourcedir="."
-targetdir=$(datarootdir)/doc/$(name)
-filemode=$(txtmode)
+targetdir=$(bindir)
+filemode=$(binmode)
 files=`ls $(sourcedir) | grep -v Makefile`
 
 all:
@@ -28,14 +28,10 @@ install:
 	    echo -n "#"; \
 	  fi \
 	done
-	@$(install) --mode $(filemode) "../LICENCE" $(targetdir)	
-	@echo -n "#"
 	@echo "]"
 
 uninstall:
 	@echo -n "- Removing "$(title)"["
-	@$(rm) $(targetdir)/LICENCE
-	@echo -n "#"
 	@for x in $(files); do \
 	  $(rm) $(targetdir)/$$x; \
 	  echo -n "#"; \
@@ -43,5 +39,5 @@ uninstall:
 	@if [ $(removetargetdir) -eq 1 ]; \
 	then \
 	  if [ -d $(targetdir) ]; then $(rmdir) $(targetdir); fi; \
-	fi;
+	fi
 	@echo "]"

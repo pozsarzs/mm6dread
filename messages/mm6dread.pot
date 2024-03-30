@@ -26,115 +26,159 @@ msgid "value"
 msgstr ""
 
 #: frmmain.message07
-msgid "IP address:"
+msgid "device"
 msgstr ""
 
 #: frmmain.message08
-msgid "MAC address:"
+msgid "software version"
 msgstr ""
 
 #: frmmain.message09
-msgid "Serial number:"
+msgid "MAC address"
 msgstr ""
 
 #: frmmain.message10
-msgid "Sw. version:"
+msgid "IP address"
 msgstr ""
 
 #: frmmain.message11
-msgid "Mode:"
+msgid "Modbus/RTU client UID"
 msgstr ""
 
 #: frmmain.message12
-msgid "Manual switches:"
+msgid "serial port speed [baud]"
 msgstr ""
 
 #: frmmain.message13
-msgid "Overcurrent protection:"
+msgid "general error"
 msgstr ""
 
 #: frmmain.message14
-msgid "Alarm:"
+msgctxt "frmmain.message14"
+msgid "alarm"
 msgstr ""
 
 #: frmmain.message15
-msgid "Lamp output:"
+msgid "overcurrent breaker"
 msgstr ""
 
 #: frmmain.message16
-msgid "Ventilator output:"
+msgid "connection timeout"
 msgstr ""
 
 #: frmmain.message17
-msgid "Heater output:"
+msgid "stand-by operation mode"
 msgstr ""
 
 #: frmmain.message18
-msgid "Your IP address is not allowed!"
+msgid "growing hyphae operation mode"
 msgstr ""
 
 #: frmmain.message19
-msgid "Authentication error!"
+msgid "growing mushroom operation mode"
 msgstr ""
 
-#: tform1.button10.caption
-msgid "&Refresh"
+#: frmmain.message20
+msgid "manual switch (0/1: auto/manual)"
+msgstr ""
+
+#: frmmain.message21
+msgid "status of the lamp output"
+msgstr ""
+
+#: frmmain.message22
+msgid "status of the ventilator output"
+msgstr ""
+
+#: frmmain.message23
+msgid "status of the heater output"
+msgstr ""
+
+#: frmmain.message24
+msgid "Cannot run default webbrowser!"
+msgstr ""
+
+#: tform1.button7.caption
+msgid "&Refresh displays"
 msgstr ""
 
 #: tform1.caption
 msgid "Form1"
 msgstr ""
 
+#: tform1.checkbox1.caption
+msgid "auto"
+msgstr ""
+
+#: tform1.checkbox1.hint
+msgid "Automatic device read"
+msgstr ""
+
 #: tform1.combobox1.hint
 msgid "URL"
 msgstr ""
 
-#: tform1.edit1.hint
-msgid "UID"
+#: tform1.label1.caption
+msgid "State"
 msgstr ""
 
-#: tform1.groupbox3.caption
-msgid " Status "
+#: tform1.label13.caption
+msgid "lamp"
 msgstr ""
 
-#: tform1.groupbox4.caption
-msgid " Outputs "
+#: tform1.label14.caption
+msgid "ventilator"
 msgstr ""
 
-#: tform1.label10.caption
-msgid "Ventilator"
+#: tform1.label15.caption
+msgid "heater"
 msgstr ""
 
-#: tform1.label11.caption
-msgid "Heater"
+#: tform1.label19.caption
+msgid ""
+"warning\n"
+"general error"
 msgstr ""
 
 #: tform1.label2.caption
-msgid "Status reader program for MM6D device"
+msgid "Outputs"
 msgstr ""
 
-#: tform1.label3.caption
-msgid "(C) 2020-2022 Pozsár Zsolt"
+#: tform1.label20.caption
+msgctxt "tform1.label20.caption"
+msgid "alarm"
 msgstr ""
 
-#: tform1.label4.caption
-msgid "Web: http://www.szerafingomba.hu/softwares"
+#: tform1.label24.caption
+msgid "manual"
+msgstr ""
+
+#: tform1.label25.caption
+msgid ""
+"overcurrent\n"
+"protection"
+msgstr ""
+
+#: tform1.label26.caption
+msgid ""
+"connection\n"
+"timeout"
 msgstr ""
 
 #: tform1.label6.caption
-msgid "Manual mode"
+msgid "Label6"
 msgstr ""
 
 #: tform1.label7.caption
-msgid "Overcurrent protection"
+msgid "Status reader program for MM6D device"
 msgstr ""
 
 #: tform1.label8.caption
-msgid "Lamp"
+msgid "(C)2020-2023 Pozsár Zsolt"
 msgstr ""
 
 #: tform1.label9.caption
-msgid "Alarm status"
+msgid "http://www.pozsarzs.hu"
 msgstr ""
 
 #: tform1.speedbutton2.hint
@@ -146,7 +190,7 @@ msgid "Remove URL from list"
 msgstr ""
 
 #: tform1.tabsheet1.caption
-msgid "Status"
+msgid "Measured values"
 msgstr ""
 
 #: tform1.tabsheet2.caption

@@ -1,4 +1,4 @@
-.TH "mm6dread" "1" "0.3" "Pozsár Zsolt" "Status reader program for MM6D device"
+.TH "mm6dread" "1" "@version@" "Pozsár Zsolt" "Status reader program for MM6D device"
 .SH "NAME"
 .LP 
 MM6DRead \- Status reader program for MM6D device
@@ -20,12 +20,25 @@ You can check status of MM6D growing house controllers with this
 software via network.
 .br
 This program is free software: you can redistribute it and/or modify it
-under the terms of the European Union Public License 1.1 version.
+under the terms of the European Union Public License 1.2 version.
 .br
-.SH "FILE"
+.SH "FILES"
 .TP
 \fI~/.config/mm6dread/mm6dread.ini\fR
 configuration file
 .br
+.SH "EXIT STATUS"
+.TP
+.B 0
+normal exit
+.SH "HOMEPAGE"
+\fIhttp://www.pozsarzs.hu\fR
+.SH "SEE ALSO"
+.PD 0
+.LP
+\fBmm6dread-http\fP(1)
+\fBmm6dread-modbus-rtu\fP(1)
+\fBmm6dread-modbus-tcp\fP(1)
+and \fI/usr/share/doc/mm6dread/\fP or equivalent on your system.
 .SH "AUTHOR"
-Pozsár Zsolt \fIpozsar.zsolt@szerafingomba.hu\fR
+Pozsár Zsolt \fIpozsarzs@gmail.com\fR

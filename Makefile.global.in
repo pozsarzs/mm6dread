@@ -1,10 +1,11 @@
 # +----------------------------------------------------------------------------+
-# | MM6DRead v0.3 * Status reader program for MM6D device                      |
-# | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>       |
+# | MM6DRead v0.4 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile.global                                                            |
 # | Global makefile for Unix-like systems                                      |
 # +----------------------------------------------------------------------------+
 
+copyright	= @copyright@
 name		= mm6dread
 version		= @version@
 architecture	= @architecture@
@@ -20,13 +21,16 @@ mandir		= @mandir@
 srcdir		= @srcdir@
 sysconfdir	= @sysconfdir@
 lcldir		= @lazdir@
+vardir		= @vardir@
 
 binmode		= 0755
 txtmode		= 0644
 
 install		= @install@
+ln		= @ln@ --symbolic --force
 make		= @make@
-rm		= @rm@ -f
+rm		= @rm@ --force
+rmdir		= @rmdir@ --ignore-fail-on-non-empty
 
 fpflag		= -T@os@ \
                   -dUseFHS \
@@ -34,14 +38,13 @@ fpflag		= -T@os@ \
                   -Scgi \
                   -O1 \
                   -ve \
-                  -Fu./synapse/ \
+                  -Fu../synapse/ \
                   -Fu@lcldir@/../components/lazutils/lib/@architecture@-@os@/ \
                   -Fu@lcldir@/../packager/units/@architecture@-@os@/ \
                   -Fu@lcldir@/units/@architecture@-@os@/ \
                   -Fu@lcldir@/units/@architecture@-@os@/gtk2/ \
                   -Fu. \
-                  -Fu./lib/@architecture@-@os@/ \
-                  -FE./lib/@architecture@-@os@/ \
+                  -Fu../lib/@architecture@-@os@/ \
+                  -FE../lib/@architecture@-@os@/ \
                   -dLCL \
                   -dLCLgtk2
-

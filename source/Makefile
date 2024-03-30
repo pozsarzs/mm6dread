@@ -1,38 +1,58 @@
 # +----------------------------------------------------------------------------+
-# | MM6DRead v0.3 * Status reader program for MM6D device                      |
-# | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>       |
+# | MM6DRead v0.4 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
 # | Make file for source code                                                  |
 # +----------------------------------------------------------------------------+
 
 include ../Makefile.global
 
-srcfiles = mm6dread.lpr
-binfiles = mm6dread
+title="binary files \t"
+removetargetdir=0
+sourcedir=lib/$(architecture)-$(os)
+targetdir=$(bindir)
+filemode=$(binmode)
+
+projectdirs=mm6dread
 
 all:
-	@echo "- Compiling source code..."
-	@mkdir -p ./lib/$(architecture)-$(os)/
-	@for x in $(srcfiles); do \
-	  if [ -e $$x ]; then fpc  $(fpflag) $$x; echo ""; fi; \
+	@mkdir --parents $(sourcedir)/
+	@for x in $(projectdirs); do \
+	  if [ -d $$x ]; \
+	  then \
+	    cd $$x; \
+	    fpc $(fpflag) $$x.lpr; \
+	    cd ..; \
+	    echo ""; \
+	  fi; \
 	done
-	@echo "done."
 
 clean:
-	@echo -n "- Cleaning source code..."
-	@$(rm) ./lib/$(architecture)-$(os)/*
-	@echo "done."
+	@for x in $(projectdirs); do \
+	  $(rm) $$x/config.pas; \
+	done
+	@$(rm) lib/$(architecture)-$(os)/*
 
 install:
-	@echo -n "- Installing binary files..."
-	@$(install) -d $(bindir)
-	@for x in $(binfiles); do \
-	  if [ -e ./lib/$(architecture)-$(os)/$$x ]; then $(install) -m $(binmode) ./lib/$(architecture)-$(os)/$$x $(bindir); fi; \
+	@echo -n "- Installing "$(title)"["
+	@$(install) --directory $(targetdir)
+	@for x in $(projectdirs); do \
+	  if [ -f $(sourcedir)/$$x ]; \
+	  then \
+	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir); \
+	    echo -n "#"; \
+	  fi \
 	done
-	@echo "done."
+	@echo "]"
 
 uninstall:
-	@echo -n "- Removing binary files..."
-	@for x in $(binfiles); do $(rm) $(bindir)/$$x; done
-	@echo "Done."
-
+	@echo -n "- Removing "$(title)"["
+	@for x in $(projectdirs); do \
+	  $(rm) $(targetdir)/$$x; \
+	  echo -n "#"; \
+	done
+	@if [ $(removetargetdir) -eq 1 ]; \
+	then \
+	  if [ -d $(targetdir) ]; then $(rmdir) $(targetdir); fi; \
+	fi
+	@echo "]"

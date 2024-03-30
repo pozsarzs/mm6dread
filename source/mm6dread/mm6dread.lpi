@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="10"/>
+    <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="MM6DRead"/>
-      <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
+      <XPManifest>
+        <TextName Value="PozsarZsolt.MM6D.MM6DRead"/>
+        <TextDesc Value="Status reader for MM6D device"/>
+      </XPManifest>
       <Icon Value="0"/>
     </General>
     <i18n>
       <EnableI18N Value="True"/>
-      <OutDir Value="po"/>
+      <OutDir Value="../po"/>
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="3"/>
-      <StringTable Comments="Status reader program for MM6D device" CompanyName="Pozsár Zsolt" LegalCopyright="(C) 2020-2022 Pozsár Zsolt" ProductName="MM6DRead" ProductVersion="0.3"/>
+      <MinorVersionNr Value="1"/>
+      <StringTable Comments="Status reader for MM6D device" CompanyName="Pozsár Zsolt" LegalCopyright="(C) 2020-2023 Pozsár Zsolt" ProductName="MM6DRead" ProductVersion="0.4"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -26,14 +31,18 @@
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
-      <local>
-        <FormatVersion Value="1"/>
-      </local>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
     </RequiredPackages>
     <Units Count="2">
       <Unit0>
@@ -56,8 +65,8 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="synapse"/>
-      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+      <OtherUnitFiles Value="../synapse"/>
+      <UnitOutputDirectory Value="../lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
       <Debugging>

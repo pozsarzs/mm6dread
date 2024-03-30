@@ -1,0 +1,221 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: frmmain.message01
+msgid "Cannot read configuration file!"
+msgstr "A beállításfájl nem olvasható!"
+
+#: frmmain.message02
+msgid "Cannot write configuration file!"
+msgstr "A beállításfájl nem írható!"
+
+#: frmmain.message03
+msgid "Cannot read data from this URL!"
+msgstr "Nem tudok adatokat beolvasni erről az URL-ről!"
+
+#: frmmain.message04
+msgid "Not compatible controller!"
+msgstr "Nem kompatibilis vezérlő!"
+
+#: frmmain.message05
+msgid "name"
+msgstr "név"
+
+#: frmmain.message06
+msgid "value"
+msgstr "érték"
+
+#: frmmain.message07
+msgid "device"
+msgstr "eszköz"
+
+#: frmmain.message08
+msgid "software version"
+msgstr "szoftver verzió"
+
+#: frmmain.message09
+msgid "MAC address"
+msgstr "MAC cím"
+
+#: frmmain.message10
+msgid "IP address"
+msgstr "IP cím"
+
+#: frmmain.message11
+msgid "Modbus/RTU client UID"
+msgstr "Modbus/RTU kliens UID"
+
+#: frmmain.message12
+msgid "serial port speed [baud]"
+msgstr "Soros port sebesség [baud]"
+
+#: frmmain.message13
+msgid "general error"
+msgstr "általános hiba"
+
+#: frmmain.message14
+msgctxt "frmmain.message14"
+msgid "alarm"
+msgstr "riasztó"
+
+#: frmmain.message15
+msgid "overcurrent breaker"
+msgstr "túláramvédelem"
+
+#: frmmain.message16
+msgid "connection timeout"
+msgstr "időtúllépés a kapcsolatban"
+
+#: frmmain.message17
+msgid "stand-by operation mode"
+msgstr "készenlét"
+
+#: frmmain.message18
+msgid "growing hyphae operation mode"
+msgstr "átszövetés"
+
+#: frmmain.message19
+msgid "growing mushroom operation mode"
+msgstr "gombatermesztés"
+
+#: frmmain.message20
+msgid "manual switch (0/1: auto/manual)"
+msgstr "kézi üzem kapcsoló (0/1: auto/kézi)"
+
+#: frmmain.message21
+msgid "status of the lamp output"
+msgstr "világítás kimenet állapota"
+
+#: frmmain.message22
+msgid "status of the ventilator output"
+msgstr "ventilátor kimenet állapota"
+
+#: frmmain.message23
+msgid "status of the heater output"
+msgstr "fűtés kimenet állapota"
+
+#: frmmain.message24
+msgid "Cannot run default webbrowser!"
+msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
+
+#: tform1.button7.caption
+msgid "&Refresh displays"
+msgstr "Kijelzők f&rissítése"
+
+#: tform1.caption
+msgid "Form1"
+msgstr "Form1"
+
+#: tform1.checkbox1.caption
+msgid "auto"
+msgstr "auto"
+
+#: tform1.checkbox1.hint
+msgid "Automatic device read"
+msgstr "Automatikus eszköz olvasás"
+
+#: tform1.combobox1.hint
+msgid "URL"
+msgstr "URL"
+
+#: tform1.label1.caption
+msgid "State"
+msgstr "Állapot"
+
+#: tform1.label13.caption
+msgid "lamp"
+msgstr "világítás"
+
+#: tform1.label14.caption
+msgid "ventilator"
+msgstr "ventilator"
+
+#: tform1.label15.caption
+msgid "heater"
+msgstr "fűtés"
+
+#: tform1.label19.caption
+msgid ""
+"warning\n"
+"general error"
+msgstr ""
+"figyelmeztetés\n"
+"általános hiba"
+
+#: tform1.label2.caption
+msgid "Outputs"
+msgstr "Kimenetek"
+
+#: tform1.label20.caption
+msgctxt "tform1.label20.caption"
+msgid "alarm"
+msgstr "riasztó"
+
+#: tform1.label24.caption
+msgid "manual"
+msgstr "kézi üzem"
+
+#: tform1.label25.caption
+msgid ""
+"overcurrent\n"
+"protection"
+msgstr "túláramvédelem"
+
+#: tform1.label26.caption
+msgid ""
+"connection\n"
+"timeout"
+msgstr ""
+"időtúllépés\n"
+"a kapcsolatban"
+
+#: tform1.label6.caption
+msgid "Label6"
+msgstr "Label6"
+
+#: tform1.label7.caption
+msgid "Status reader program for MM6D device"
+msgstr "Állapotolvasó program MM6D eszközhöz"
+
+#: tform1.label8.caption
+msgid "(C)2020-2023 Pozsár Zsolt"
+msgstr "(C)2020-2023 Pozsár Zsolt"
+
+#: tform1.label9.caption
+msgid "http://www.pozsarzs.hu"
+msgstr "http://www.pozsarzs.hu"
+
+#: tform1.speedbutton2.hint
+msgid "Add URL to list"
+msgstr "URL hozzáadása a listához"
+
+#: tform1.speedbutton3.hint
+msgid "Remove URL from list"
+msgstr "URL eltávolítása a listából"
+
+#: tform1.tabsheet1.caption
+msgid "Measured values"
+msgstr "Mért értékek"
+
+#: tform1.tabsheet2.caption
+msgid "Summary"
+msgstr "Összegzés"
+
+#: tform1.tabsheet3.caption
+msgid "System log"
+msgstr "Rendszernapló"
+
+#: tform1.tabsheet4.caption
+msgid "About"
+msgstr "&Névjegy"

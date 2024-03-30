@@ -1,23 +1,27 @@
 #!/bin/bash
 # +----------------------------------------------------------------------------+
-# | MM6DRead v0.3 * Status reader program for MM6D device                      |
-# | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>       |
+# | MM6DRead v0.4 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                  |
 # | uninstall                                                                  |
 # | Uninstaller script                                                         |
 # +----------------------------------------------------------------------------+
 
-# constans
+# constants
 SWN="MM6DRead"
 SWV=`cat documents/VERSION`
+CR=`cat documents/copyright`
 INSTDIR=/opt/mm6dread
 LINKDIR=/usr/local
-BINFILE=mm6dread
+BINFILES="mm6dread \
+          mm6dread-http \
+          mm6dread-modbus-rtu \
+          mm6dread-modbus-tcp"
 
 # uninstaller
 clear
 echo "--------------------------------------------------------------------------------"
 echo "$SWN $SWV uninstaller script"
-echo "Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>"
+echo "$CR"
 echo "--------------------------------------------------------------------------------"
 if [ `whoami` != 'root' ]
 then echo 'ERROR: You are not root!'; exit
@@ -25,14 +29,23 @@ fi
 sleep 1
 echo "Uninstalling..."
 echo "- removing symbolic links:"
-rm --force $LINKDIR/bin/$BINFILE 2> /dev/null
-echo "  $LINKDIR/bin/$BINFILE"
-rm --force $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
-echo "  $LINKDIR/share/man/man1/$BINFILE.1"
-rm --force $LINKDIR/share/applications/$BINFILE.desktop 2> /dev/null
-echo "  $LINKDIR/share/applications/$BINFILE.desktop"
-rm --force $LINKDIR/share/pixmaps/$BINFILE.xpm 2> /dev/null
-echo "  $LINKDIR/share/pixmaps/$BINFILE.xpm"
+for f in $BINFILES
+do
+  rm --force $LINKDIR/bin/$f 2> /dev/null
+  echo "  $LINKDIR/bin/$f"
+  if [ -f $LINKDIR/bin/$f.desktop ];
+  then
+    rm --force $LINKDIR/share/applications/$f.desktop 2> /dev/null
+    echo "  $LINKDIR/share/applications/$f.desktop"
+  fi
+  if [ -f $f.xpm ];
+  then
+    rm --force $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
+    echo "  $LINKDIR/share/pixmaps/$f.xpm"
+  fi
+  rm --force $LINKDIR/share/man/man1/$f.1 2> /dev/null
+  echo "  $LINKDIR/share/man/man1/$f.1"
+done
 echo "- removing directory recursively:"
 rm --force --recursive $INSTDIR 2> /dev/null
 echo "  $INSTDIR"/

@@ -1,39 +1,41 @@
 # +----------------------------------------------------------------------------+
-# | MM6DRead v0.3 * Status reader program for MM6D device                      |
-# | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>       |
+# | MM6DRead v0.4 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
 # | Makefile for Unix-like systems                                             |
 # +----------------------------------------------------------------------------+
 
 include ./Makefile.global
 
-dirs = desktop documents languages manuals source
-srcdirs = source
+dirs =	desktop documents manuals messages scripts source
 
 all:
-	@echo Compiling $(name):
-	@for dir in $(srcdirs); do \
+	@echo "Compiling source code..."
+	@for dir in $(dirs); do \
 	  if [ -e Makefile ]; then make -s -C $$dir all; fi; \
 	done
-	@echo "Source code is compiled."
+	@echo "Done."
 
 clean:
-	@echo Cleaning source code:
-	@for dir in $(srcdirs); do \
+	@echo "Cleaning source code..."
+	@for dir in $(dirs); do \
 	  if [ -e Makefile ]; then make -s -C $$dir clean; fi; \
 	done
-	@echo "Source code is cleaned."
+	@$(rm) config.log
+	@$(rm) config.status
+	@$(rm) Makefile.global
+	@echo "Done."
 
 install:
-	@echo Installing $(name):
+	@echo "Installing program to "$(prefix)":"
 	@for dir in $(dirs); do \
 	  if [ -e Makefile ]; then make -s -C $$dir install; fi; \
 	done
-	@echo "Application is installed."
+	@echo "Done."
 
 uninstall:
-	@echo Removing $(name):
+	@echo "Removing program from "$(prefix)":"
 	@for dir in $(dirs); do \
 	  if [ -e Makefile ]; then make -s -C $$dir uninstall; fi; \
 	done
-	@echo "Application is removed."
+	@echo "Done."

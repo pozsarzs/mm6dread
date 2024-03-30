@@ -1,12 +1,12 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM6DRead v0.3 * Status reader program for MM6D device                    | }
-{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM6DRead v0.4 * Status reader program for MM6D device                    | }
+{ | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                | }
 { | mm6dread.lpr                                                             | }
 { | Project file                                                             | }
 { +--------------------------------------------------------------------------+ }
 
 //   This program is free software: you can redistribute it and/or modify it
-// under the terms of the European Union Public License 1.1 version.
+// under the terms of the European Union Public License 1.2 version.
 
 //   This program is distributed in the hope that it will be useful, but WITHOUT
 // ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
@@ -126,7 +126,7 @@ begin
     10: help(False);
     20: verinfo;
   end;
-  Application.Title := 'MM6DRead';
+  Application.Title:='MM6DRead';
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);

@@ -1,12 +1,12 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM6DRead v0.3 * Status reader program for MM6D device                    | }
-{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM6DRead v0.4 * Status reader program for MM6D device                    | }
+{ | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                | }
 { | untcommonproc.pas                                                        | }
 { | Common functions and procedures                                          | }
 { +--------------------------------------------------------------------------+ }
 
 //   This program is free software: you can redistribute it and/or modify it
-// under the terms of the European Union Public License 1.1 version.
+// under the terms of the European Union Public License 1.2 version.
 
 //   This program is distributed in the hope that it will be useful, but WITHOUT
 // ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
@@ -22,7 +22,7 @@ uses
 
 var
   Value: TStringList;
-  //  green, yellow, red: boolean;
+  green, yellow, red: boolean;
   exepath: shortstring;
   lang: string[2];
   uids: string;
@@ -41,10 +41,10 @@ const
   {$I config.pas.in}
 {$ENDIF}
 
+function word2bs(myNum: word; NumberOfBits: byte): string;
 function rmchr1(input: string): string;
-function rmchr2(input: string): string;
 function rmchr3(input: string): string;
-function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
+function getdatafromdevice(url: string; cmd: byte): boolean;
 function getexepath: string;
 function getlang: string;
 function loadconfiguration(filename: string): boolean;
@@ -59,6 +59,27 @@ function SHGetFolderPath(hwndOwner: HWND; nFolder: integer; hToken: THandle;
 
 implementation
 
+// convert uint16_t to String in binary format
+function word2bs(myNum: word; NumberOfBits: byte): string;
+var
+  i: integer;
+  s: string;
+begin
+  s:='';
+  if (NumberOfBits <= 16) then
+  begin
+    myNum := myNum shl (16 - NumberOfBits);
+    for i := 0 to NumberOfBits-1 do
+    begin
+      if odd(myNum shr 15) = true
+        then s := s+ '1'
+        else s := s+ '0';
+      myNum := myNum shl 1;
+    end;
+  end;
+  result := s;
+end;
+
 // remove all space and tabulator
 function rmchr1(input: string): string;
 var
@@ -68,20 +89,6 @@ begin
   for b := 1 to length(input) do
     if (input[b] <> #32) and (input[b] <> #9) then
       rmchr1 := rmchr1 + input[b];
-end;
-
-// remove space and tabulator from end of line
-function rmchr2(input: string): string;
-var
-  b: byte;
-begin
-  rmchr2 := '';
-  for b := length(input) downto 1 do
-    if (input[b] = #32) or (input[b] = #9) then
-      Delete(input, b, 1)
-    else
-      break;
-  rmchr2 := input;
 end;
 
 // remove space and tabulator from start of line
@@ -94,15 +101,15 @@ begin
 end;
 
 // get data from controller device via http
-function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
+function getdatafromdevice(url: string; cmd: byte): boolean;
 const
-  cmdstr: array[0..2] of string = ('version', 'summary', 'log');
+  cmdstr: array[0..1] of string = ('get/xml', 'log');
 begin
   getdatafromdevice := True;
   Value.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then
+    if not HttpGetText(url + '/' + cmdstr[cmd], Value) then
       getdatafromdevice := False;
     Free;
   end;
@@ -129,8 +136,6 @@ begin
  {$IFDEF UNIX}
   s := getenvironmentvariable('LANG');
  {$ENDIF}
- {$IFDEF ANDROID}
- {$ENDIF}
  {$IFDEF WIN32}
   size := getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, nil, 0);
   getmem(buffer, size);
@@ -156,7 +161,6 @@ begin
   iif := TIniFile.Create(filename);
   loadconfiguration := True;
   try
-    uids := iif.ReadString('uids', '1', '');
     for b := 0 to 63 do
       urls[b] := iif.ReadString('urls', IntToStr(b + 1), '');
   except
@@ -174,7 +178,6 @@ begin
   iif := TIniFile.Create(filename);
   saveconfiguration := True;
   try
-    iif.WriteString('uids', '1', uids);
     for b := 0 to 63 do
       iif.WriteString('urls', IntToStr(b + 1), urls[b]);
   except
@@ -201,9 +204,6 @@ var
 begin
  {$IFDEF UNIX}
   userdir := getenvironmentvariable('HOME');
- {$ENDIF}
- {$IFDEF ANDROID}
-  userdir := '/data/data/hu.szerafingomba.mm6dread';
  {$ENDIF}
  {$IFDEF WIN32}
   userdir := getuserprofile;
