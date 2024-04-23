@@ -1,6 +1,6 @@
 '+-----------------------------------------------------------------------------+
 '| MM6DRead v0.4 * Status reader program for MM6D device                       |
-'| Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                        |
+'| Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                   |
 '| mkshortcut.vbs                                                              |
 '| Make shortcut                                                               |
 '+-----------------------------------------------------------------------------+
