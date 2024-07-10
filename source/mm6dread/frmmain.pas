@@ -26,7 +26,15 @@ type
   { TForm1 }
   TForm1 = class(TForm)
     Bevel1: TBevel;
+    Bevel10: TBevel;
+    Bevel2: TBevel;
+    Bevel3: TBevel;
     Bevel4: TBevel;
+    Bevel5: TBevel;
+    Bevel6: TBevel;
+    Bevel7: TBevel;
+    Bevel8: TBevel;
+    Bevel9: TBevel;
     Button7: TButton;
     CheckBox1: TCheckBox;
     ComboBox1: TComboBox;
