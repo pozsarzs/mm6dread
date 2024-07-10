@@ -118,8 +118,8 @@ msgid "Form1"
 msgstr "Form1"
 
 #: tform1.checkbox1.caption
-msgid "auto"
-msgstr "auto"
+msgid "au&to"
+msgstr "au&to"
 
 #: tform1.checkbox1.hint
 msgid "Automatic device read"
@@ -139,7 +139,7 @@ msgstr "világítás"
 
 #: tform1.label14.caption
 msgid "ventilator"
-msgstr "ventilator"
+msgstr "szellőztetés"
 
 #: tform1.label15.caption
 msgid "heater"
@@ -219,3 +219,6 @@ msgstr "Rendszernapló"
 #: tform1.tabsheet4.caption
 msgid "About"
 msgstr "&Névjegy"
+
+#~ msgid "auto"
+#~ msgstr "auto"

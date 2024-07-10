@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 316
+  Left = 307
   Height = 405
-  Top = 160
+  Top = 127
   Width = 332
   ActiveControl = ComboBox1
   Caption = 'Form1'
@@ -94,7 +94,7 @@ object Form1: TForm1
     Height = 34
     Hint = 'URL'
     Top = 4
-    Width = 270
+    Width = 272
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -125,16 +125,17 @@ object Form1: TForm1
   object SpeedButton2: TSpeedButton
     AnchorSideTop.Control = ComboBox1
     AnchorSideRight.Control = SpeedButton3
-    Left = 278
-    Height = 22
+    AnchorSideBottom.Control = ComboBox1
+    AnchorSideBottom.Side = asrBottom
+    Left = 280
+    Height = 30
     Hint = 'Add URL to list'
     Top = 8
     Width = 23
-    Anchors = [akTop, akRight]
+    Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Top = 4
-    BorderSpacing.Right = 4
+    BorderSpacing.Right = 2
     Enabled = False
-    Flat = True
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       20000000000000040000640000006400000000000000000000000000000A6669
@@ -179,16 +180,17 @@ object Form1: TForm1
     AnchorSideTop.Control = ComboBox1
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = ComboBox1
+    AnchorSideBottom.Side = asrBottom
     Left = 305
-    Height = 22
+    Height = 30
     Hint = 'Remove URL from list'
     Top = 8
     Width = 23
-    Anchors = [akTop, akRight]
+    Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Top = 4
     BorderSpacing.Right = 4
     Enabled = False
-    Flat = True
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       20000000000000040000640000006400000000000000000000000000000A6669
@@ -275,7 +277,7 @@ object Form1: TForm1
         Top = 4
         Width = 55
         BorderSpacing.Around = 4
-        Caption = 'auto'
+        Caption = 'au&to'
         OnChange = CheckBox1Change
         ParentShowHint = False
         ShowHint = True
@@ -285,99 +287,99 @@ object Form1: TForm1
         AnchorSideTop.Control = Bevel1
         AnchorSideRight.Control = Bevel1
         AnchorSideRight.Side = asrBottom
-        Left = 268
-        Height = 25
+        Left = 270
+        Height = 16
         Top = 63
-        Width = 26
+        Width = 24
         Anchors = [akTop, akRight]
         BorderSpacing.Top = 16
         BorderSpacing.Around = 16
         Brush.Color = clGreen
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Shape10: TShape
         AnchorSideTop.Control = Shape9
         AnchorSideRight.Control = Bevel1
         AnchorSideRight.Side = asrBottom
-        Left = 268
-        Height = 25
+        Left = 270
+        Height = 16
         Top = 103
-        Width = 26
+        Width = 24
         Anchors = [akTop, akRight]
         BorderSpacing.Top = 24
         BorderSpacing.Around = 16
         Brush.Color = clGreen
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Shape11: TShape
         AnchorSideTop.Control = Shape10
         AnchorSideRight.Control = Bevel1
         AnchorSideRight.Side = asrBottom
-        Left = 268
-        Height = 25
+        Left = 270
+        Height = 16
         Top = 143
-        Width = 26
+        Width = 24
         Anchors = [akTop, akRight]
         BorderSpacing.Top = 24
         BorderSpacing.Around = 16
         Brush.Color = clGreen
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Shape16: TShape
         AnchorSideLeft.Control = Bevel1
         AnchorSideTop.Control = Bevel1
         Left = 20
-        Height = 25
+        Height = 16
         Top = 63
-        Width = 25
+        Width = 24
         BorderSpacing.Top = 16
         BorderSpacing.Around = 16
         Brush.Color = clOlive
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Shape17: TShape
         AnchorSideLeft.Control = Bevel1
         AnchorSideTop.Control = Shape16
         Left = 20
-        Height = 25
+        Height = 16
         Top = 103
-        Width = 25
+        Width = 24
         BorderSpacing.Top = 24
         BorderSpacing.Around = 16
         Brush.Color = clMaroon
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Shape18: TShape
         AnchorSideLeft.Control = Bevel1
         AnchorSideTop.Control = Shape17
         Left = 20
-        Height = 25
+        Height = 16
         Top = 143
-        Width = 25
+        Width = 24
         BorderSpacing.Top = 24
         BorderSpacing.Around = 16
         Brush.Color = clMaroon
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Label13: TLabel
         AnchorSideTop.Control = Shape9
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = Shape9
-        Left = 219
+        Left = 221
         Height = 17
-        Top = 67
+        Top = 63
         Width = 33
         Alignment = taRightJustify
         Anchors = [akTop, akRight]
@@ -389,9 +391,9 @@ object Form1: TForm1
         AnchorSideTop.Control = Shape10
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = Shape10
-        Left = 189
+        Left = 191
         Height = 17
-        Top = 107
+        Top = 103
         Width = 63
         Alignment = taRightJustify
         Anchors = [akTop, akRight]
@@ -403,9 +405,9 @@ object Form1: TForm1
         AnchorSideTop.Control = Shape11
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = Shape11
-        Left = 210
+        Left = 212
         Height = 17
-        Top = 147
+        Top = 143
         Width = 42
         Alignment = taRightJustify
         Anchors = [akTop, akRight]
@@ -418,9 +420,9 @@ object Form1: TForm1
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = Shape17
         AnchorSideTop.Side = asrCenter
-        Left = 61
+        Left = 60
         Height = 34
-        Top = 98
+        Top = 94
         Width = 84
         BorderSpacing.Right = 8
         Caption = 'warning'#10'general error'
@@ -431,9 +433,9 @@ object Form1: TForm1
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = Shape18
         AnchorSideTop.Side = asrCenter
-        Left = 61
+        Left = 60
         Height = 17
-        Top = 147
+        Top = 143
         Width = 38
         Alignment = taRightJustify
         BorderSpacing.Left = 8
@@ -445,9 +447,9 @@ object Form1: TForm1
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = Shape16
         AnchorSideTop.Side = asrCenter
-        Left = 61
+        Left = 60
         Height = 17
-        Top = 67
+        Top = 63
         Width = 49
         Alignment = taRightJustify
         Caption = 'manual'
@@ -457,24 +459,24 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel1
         AnchorSideTop.Control = Shape18
         Left = 20
-        Height = 25
+        Height = 16
         Top = 183
-        Width = 25
+        Width = 24
         BorderSpacing.Top = 24
         BorderSpacing.Around = 16
         Brush.Color = clMaroon
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Label25: TLabel
         AnchorSideLeft.Control = Shape19
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = Shape19
         AnchorSideTop.Side = asrCenter
-        Left = 61
+        Left = 60
         Height = 34
-        Top = 178
+        Top = 174
         Width = 75
         Caption = 'overcurrent'#10'protection'
         ParentColor = False
@@ -483,24 +485,24 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel1
         AnchorSideTop.Control = Shape19
         Left = 20
-        Height = 25
+        Height = 16
         Top = 223
-        Width = 25
+        Width = 24
         BorderSpacing.Top = 24
         BorderSpacing.Around = 16
         Brush.Color = clMaroon
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Label26: TLabel
         AnchorSideLeft.Control = Shape20
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = Shape20
         AnchorSideTop.Side = asrCenter
-        Left = 61
+        Left = 60
         Height = 34
-        Top = 218
+        Top = 214
         Width = 71
         Caption = 'connection'#10'timeout'
         ParentColor = False

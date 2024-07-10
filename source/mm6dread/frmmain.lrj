@@ -5,7 +5,7 @@
 {"hash":64987076,"name":"tform1.speedbutton3.hint","sourcebytes":[82,101,109,111,118,101,32,85,82,76,32,102,114,111,109,32,108,105,115,116],"value":"Remove URL from list"},
 {"hash":258794259,"name":"tform1.tabsheet1.caption","sourcebytes":[77,101,97,115,117,114,101,100,32,118,97,108,117,101,115],"value":"Measured values"},
 {"hash":125732276,"name":"tform1.checkbox1.hint","sourcebytes":[65,117,116,111,109,97,116,105,99,32,100,101,118,105,99,101,32,114,101,97,100],"value":"Automatic device read"},
-{"hash":429231,"name":"tform1.checkbox1.caption","sourcebytes":[97,117,116,111],"value":"auto"},
+{"hash":6847919,"name":"tform1.checkbox1.caption","sourcebytes":[97,117,38,116,111],"value":"au&to"},
 {"hash":469056,"name":"tform1.label13.caption","sourcebytes":[108,97,109,112],"value":"lamp"},
 {"hash":184895282,"name":"tform1.label14.caption","sourcebytes":[118,101,110,116,105,108,97,116,111,114],"value":"ventilator"},
 {"hash":116099778,"name":"tform1.label15.caption","sourcebytes":[104,101,97,116,101,114],"value":"heater"},

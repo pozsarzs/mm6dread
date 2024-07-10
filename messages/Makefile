@@ -12,8 +12,8 @@ removetargetdir=0
 sourcedir="."
 targetdir=$(localedir)
 filemode=$(txtmode)
-languages = hu
-
+languages=hu
+lc="LC_MESSAGES"
 all:
 
 clean:
@@ -23,9 +23,9 @@ install:
 	@for x in $(languages); do \
 	  if [ -f $(name)_$$x.mo ]; \
 	  then \
-	    $(install) --directory $(targetdir)/$$x; \
-	    $(install) --mode $(filemode) $(sourcedir)/$(name)_$$x.mo $(targetdir)/$$x; \
-	    mv $(targetdir)/$$x/$(name)_$$x.mo $(targetdir)/$$x/$(name).mo; \
+	    $(install) --directory $(targetdir)/$$x/$(lc)/; \
+	    $(install) --mode $(filemode) $(sourcedir)/$(name)_$$x.mo $(targetdir)/$$x/$(lc)/; \
+	    mv $(targetdir)/$$x/$(lc)/$(name)_$$x.mo $(targetdir)/$$x/$(lc)/$(name).mo; \
 	    echo -n "#"; \
 	  fi; \
 	done
@@ -36,12 +36,12 @@ uninstall:
 	@for x in $(languages); do \
 	  if [ -f $(name)_$$x.mo ]; \
 	  then \
-	    $(rm) $(targetdir)/$$x/$(name).mo; \
+	    $(rm) $(targetdir)/$$x/$(lc)/$(name).mo; \
 	    echo -n "#"; \
 	  fi; \
 	  if [ $(removetargetdir) -eq 1 ]; \
 	  then \
-	    if [ -d $(targetdir)/$$x ]; then $(rmdir) $(targetdir)/$$x; fi; \
+	    if [ -d $(targetdir)/$$x/$(lc) ]; then $(rmdir) $(targetdir)/$$x/$(lc); fi; \
 	  fi; \
 	done
 	@echo "]"

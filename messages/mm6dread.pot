@@ -107,7 +107,7 @@ msgid "Form1"
 msgstr ""
 
 #: tform1.checkbox1.caption
-msgid "auto"
+msgid "au&to"
 msgstr ""
 
 #: tform1.checkbox1.hint
